@@ -134,6 +134,7 @@
             </p>
             <p class="about-me">
                 <pre class="prettyprint">
+                  <code>
                     rxAsync { get<PreferencesHelper>() }
 
                         rxAsync { get<NetworkHelper>() }
@@ -149,7 +150,7 @@
                     private fun rxAsync(block: () -> Unit) {
                         Observable.fromCallable { block() }.subscribeOn(Schedulers.computation()).subscribe()
                     }
-
+                  </code>
                 </pre>
             </p>
         </div>
