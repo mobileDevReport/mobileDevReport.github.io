@@ -67,7 +67,10 @@
           <div class="col-sm container-fluid" data-aos="fade-left">
             <h1 class="about-me"> Recuperación ante reconexión a internet No. 1</h1>
             <p class="about-me">
-              En esta situación
+              En esta situación, el usuario recorre el catalogo de mangas brindado por una extensión, selecciona un
+              manga que anteriormente no cargaba debido a un error en la conexión a internet y se denota como,
+              accediendo a la página de dicho manga y sin necesidad de hacer un refrescado manual, el contenido vuelve a
+              estar actualizado.
             </p>
           </div>
           <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
@@ -79,7 +82,8 @@
           <div class="col-sm container-fluid" data-aos="fade-left">
             <h1 class="about-me"> Recuperación ante reconexión a internet No. 2</h1>
             <p class="about-me">
-              En esta situación
+              En esta situación se denota como, haciendo un refrescado manual, y teniendo la conexión a internet
+              establecida, el contenido de capitulos de un manga vuelve a estar actualizado.
             </p>
           </div>
           <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
@@ -91,7 +95,9 @@
           <div class="col-sm container-fluid" data-aos="fade-left">
             <h1 class="about-me"> Manejo correcto de descarga de extensiones</h1>
             <p class="about-me">
-              En esta situación
+              Aquí se denota la robustez del proceso de descarga e instalación de extensiones en Tachiyomi (que son
+              apk externos que hace las veces de fuente de contenido). Aquí, aunque el proceso se detiene debido a un
+              fallo en la conexión, el proceso, una vez reestablecida la conexión, continúa automáticamente.
             </p>
           </div>
           <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
@@ -124,7 +130,10 @@
           <div class="col-sm container-fluid" data-aos="fade-left">
             <h1 class="about-me"> Message with exception trace No. 1</h1>
             <p class="about-me">
-              En esta situación
+              En este escenario, es notorio como aparece un Toast con el mensaje "Unable to resolve host: No address
+              associated with hostname" cuando el usuario intenta acceder a un capítulo de un manga. Este mensaje no es
+              nada claro y corresponde a la traza de un excepción ocurrida cuando no se puede resolver una dirección de
+              red (porque no hay conexión a internet).
             </p>
           </div>
           <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
@@ -136,7 +145,8 @@
           <div class="col-sm container-fluid" data-aos="fade-left">
             <h1 class="about-me"> Message with exception trace No. 2</h1>
             <p class="about-me">
-              En esta situación
+              Aquí se puede encontrar la misma excepción del caso anterior, solo que ocurrida cuando el usuario
+              selecciona un manga expuesto en el catálogo e intenta recarga la información del manga
             </p>
           </div>
           <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
@@ -148,7 +158,8 @@
           <div class="col-sm container-fluid" data-aos="fade-left">
             <h1 class="about-me"> Message with exception trace No. 3</h1>
             <p class="about-me">
-              En esta situación
+              De igual forma, si hay capítulos de un manga en caché y se intentan reproducir estos capítulos de forma
+              ordenada, la aplicación lanza la misma excepción anteriormente mostrada
             </p>
           </div>
           <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
@@ -160,7 +171,11 @@
           <div class="col-sm container-fluid" data-aos="fade-left">
             <h1 class="about-me"> Message with exception trace No. 4</h1>
             <p class="about-me">
-              En esta situación
+              En este caso se pueden ver dos mensajes de excepción. El primero, en forma de notificación del sistema de
+              Android, se debe a la pérdida de conexión durante la descarga de un capítulo de un manga. El otro,
+              relacionado con el uso de la lista de mangas recientemente leídos, que aunque es funcional incluso sin
+              internet (es decir, se actualiza correctamente sin internet), genera el ya mencionado Toast cuando se
+              intenta acceder a un manga recientemente leído que no está en caché o descargado.
             </p>
           </div>
           <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
@@ -168,32 +183,9 @@
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
-        <div class="row projects">
-          <div class="col-sm container-fluid" data-aos="fade-left">
-            <h1 class="about-me"> Message with exception trace No. 5</h1>
-            <p class="about-me">
-              En esta situación
-            </p>
-          </div>
-          <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
-            <iframe width="300" height="315" src="https://www.youtube.com/embed/1VSkUJQIKk0" frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-        </div>
-        <div class="row projects">
-          <div class="col-sm container-fluid" data-aos="fade-left">
-            <h1 class="about-me"> Message with exception trace No. 6</h1>
-            <p class="about-me">
-              En esta situación
-            </p>
-          </div>
-          <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
-            <iframe width="300" height="315" src="https://www.youtube.com/embed/QEQ5uWh5nJE" frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-        </div>
         <h3>Inconsistent Messages</h3>
-        <p>En este sub-aparte se tratan todos aquellos mensajes que no son expresivos por ser siempre brindados al usuario aunque
+        <p>En este sub-aparte se tratan todos aquellos mensajes que no son expresivos por ser siempre brindados al
+          usuario aunque
           el estado de la aplicación cambie.</p>
         <div class="row projects">
           <div class="col-sm container-fluid" data-aos="fade-left">
@@ -218,23 +210,13 @@
           <div class="col-sm container-fluid" data-aos="fade-left">
             <h1 class="about-me"> Blank Image No. 1</h1>
             <p class="about-me">
-              En esta situación
+              En esta situación, cuando no hay conexión a internet se presenta un error en la carga de imágenes
+              realizada mediante Glide. Aquí, se rompen los procesos asincrónicos que descargan las imagenes que no se
+              encuentran en caché y no se reinician de manera automática una vez se reestablece la conexión a Internet.
             </p>
           </div>
           <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
             <iframe width="300" height="315" src="https://www.youtube.com/embed/FHJSCreOPq4" frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-        </div>
-        <div class="row projects">
-          <div class="col-sm container-fluid" data-aos="fade-left">
-            <h1 class="about-me"> Blank Image No. 2</h1>
-            <p class="about-me">
-              En esta situación
-            </p>
-          </div>
-          <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
-            <iframe width="300" height="315" src="https://www.youtube.com/embed/97utn7BM9Zw" frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
@@ -245,7 +227,9 @@
           <div class="col-sm container-fluid" data-aos="fade-left">
             <h1 class="about-me"> Lost page No. 1</h1>
             <p class="about-me">
-              En esta situación
+              Aquí, cuando no hay conexión a internet, las páginas de un manga que no se cargan por caché se vuelven
+              botones no
+              dicientes y de baja eficacia en cuanto a interfaz de usuario.
             </p>
           </div>
           <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
@@ -265,7 +249,8 @@
           <div class="col-sm container-fluid" data-aos="fade-left">
             <h1 class="about-me"> Nonexistent notification of retrying an action No. 1</h1>
             <p class="about-me">
-              En esta situación
+              En esta situación, al no reactivarse la descarga automática, es un error no notificar al usuario sobre la
+              necesidad de reiniciar (o reactivar) manualmente la descarga de capítulos en Tachiyomi.
             </p>
           </div>
           <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
