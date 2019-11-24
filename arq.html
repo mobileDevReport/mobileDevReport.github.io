@@ -133,7 +133,24 @@
                 con ayuda de los Schedulers generados.
             </p>
             <p class="about-me">
-                *Código*
+                <pre class="prettyprint">
+                    rxAsync { get<PreferencesHelper>() }
+
+                        rxAsync { get<NetworkHelper>() }
+
+                        rxAsync { get<SourceManager>() }
+
+                        rxAsync { get<DatabaseHelper>() }
+
+                        rxAsync { get<DownloadManager>() }
+
+                    }
+
+                    private fun rxAsync(block: () -> Unit) {
+                        Observable.fromCallable { block() }.subscribeOn(Schedulers.computation()).subscribe()
+                    }
+
+                </pre>
             </p>
         </div>
       </div>
@@ -191,7 +208,16 @@
                 En el siguiente código puede verse el funcionamiento de Nucleus a partir de un código base puesto
                 sobre la clase BasePresenter de Tachiyomi. [tachiyomi-0.8.4/app/src/main/java/eu/kanade/tachiyomi/ui/base/presenter/BasePresenter.kt]
             </p>
-            <p>*Código*</p>
+            <p>
+              <pre>
+                  open class BasePresenter<V> : RxPresenter<V>() {
+                      ...
+                      fun <T> Observable<T>.subscribeFirst(onNext: (V, T) -> Unit, onError: ((V, Throwable) -> Unit)? = null)
+                             = compose(deliverFirst<T>()).subscribe(split(onNext, onError)).apply { add(this) }
+                      ...
+                      }
+              </pre>
+            </p>
             <p>
                 En este pequeño ejemplo vemos como en el código base para los presentadores, los mismos están
                 dispuestos a crear los Observables (clase perteneciente a Nucleus) necesarios para el funcionamiento
@@ -203,7 +229,77 @@
                 presentador CataloguePresenter, que hereda de NucleusController, que a su vez hereda del
                 anteriormente mostrado BasePresenter).
             </p>
-            <p>*Código*</p>
+            <p><pre>
+                /**
+                * This controller shows and manages the different catalogues enabled by the user.
+                * This controller should only handle UI actions, IO actions should be done by [CataloguePresenter]
+                */
+                class CatalogueController : NucleusController<CataloguePresenter>(),
+                       SourceLoginDialog.Listener,
+                       FlexibleAdapter.OnItemClickListener,
+                       CatalogueAdapter.OnBrowseClickListener,
+                       CatalogueAdapter.OnLatestClickListener {
+                   /**
+                    * Application preferences.
+                    */
+                   private val preferences: PreferencesHelper = Injekt.get()
+                   /**
+                    * Adapter containing sources.
+                    */
+                   private var adapter: CatalogueAdapter? = null
+                ...
+                   /**
+                    * Create the [CataloguePresenter] used in controller.
+                    *
+                    * @return instance of [CataloguePresenter]
+                    */
+                   override fun createPresenter(): CataloguePresenter {
+                       return CataloguePresenter()
+                   }
+
+                   /**
+                    * Initiate the view with [R.layout.catalogue_main_controller].
+                    *
+                    * @param inflater used to load the layout xml.
+                    * @param container containing parent views.
+                    * @return inflated view.
+                    */
+                   override fun inflateView(inflater: LayoutInflater, container: ViewGroup): View {
+                       return inflater.inflate(R.layout.catalogue_main_controller, container, false)
+                   }
+
+                   /**
+                    * Called when the view is created
+                    *
+                    * @param view view of controller
+                    */
+                   override fun onViewCreated(view: View) {
+                       super.onViewCreated(view)
+
+                       adapter = CatalogueAdapter(this)
+
+                       // Create recycler and set adapter.
+                       recycler.layoutManager = LinearLayoutManager(view.context)
+                       recycler.adapter = adapter
+                       recycler.addItemDecoration(SourceDividerItemDecoration(view.context))
+
+                       requestPermissionsSafe(arrayOf(WRITE_EXTERNAL_STORAGE), 301)
+                   }
+
+                   override fun onDestroyView(view: View) {
+                       adapter = null
+                       super.onDestroyView(view)
+                   }
+
+                   override fun onChangeStarted(handler: ControllerChangeHandler, type: ControllerChangeType) {
+                       super.onChangeStarted(handler, type)
+                       if (!type.isPush && handler is SettingsSourcesFadeChangeHandler) {
+                           presenter.updateSources()
+                       }
+                   }
+                ...
+                }
+            </pre></p>
             <p>
                 Como se puede observar, el controlador de catalogos hace uso del presentador CataloguePresenter
                 (creado en la línea 76 del archivo CatalogueController.kt y usado concretamente en la línea 116 del
