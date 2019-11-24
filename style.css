@@ -84,6 +84,10 @@ a, a:hover{
   padding: 0 1.5rem;
 }
 
+.cover2{
+  margin-top: 2rem;
+}
+
 .cover .btn-lg {
   padding: .75rem 1.25rem;
   font-weight: 700;
@@ -95,6 +99,11 @@ a, a:hover{
 
 .welcome {
   height: 60vh;
+}
+
+.welcome2 {
+  height: 60vh;
+  margin-bottom: 10rem;
 }
 
 .email {
@@ -130,6 +139,13 @@ main>.row {
   text-align: justify;
   margin: 0 auto;
   width: 100%;
+}
+
+.music3{
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  margin-bottom: 5rem;
 }
 
 .noMargin {

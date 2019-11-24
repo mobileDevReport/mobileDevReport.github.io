@@ -18,99 +18,270 @@
     crossorigin="anonymous"></script>
   <script src="./script2.js"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="icon" href="./images/bullet.png" />
+  <link rel="icon" href="./images/ic_launcher-web.png" />
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
   <title>Reporte de Tachiyomi</title>
 </head>
 
 <body>
   <div class="cover-container container-fluid d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <header class="masthead mb-auto">
-          <div class="inner">
-            <a id="naviga" href="./index.html">
-              <h3 class="masthead-brand">Reporte de Tachiyomi</h3>
-            </a>
-            <nav class="nav nav-masthead justify-content-center">
-              <a class="nav-link" href="./index.html">¿Qué es Tachiyomi?</a>
-              <a class="nav-link" href="./features.html">Features</a>
-              <a class="nav-link" href="./uxui.html">UX/UI</a>
-              <a class="nav-link" href="./arq.html">Arquitectura</a>
-              <a class="nav-link active" href="./eventualConn.html">Conectividad Eventual</a>
-              <a class="nav-link" href="./performance.html">Performance</a>
-              <a class="nav-link" href="./conclusion.html">Conclusiones</a>
-              <a class="nav-link" href="./us.html">¿Quienes somos?</a>
-              <a class="nav-link" href="./try.html">Try it yourself</a>
-            </nav>
-          </div>
-        </header>
+    <header class="masthead mb-auto">
+      <div class="inner">
+        <a id="naviga" href="./index.html">
+          <h3 class="masthead-brand">Reporte de Tachiyomi</h3>
+        </a>
+        <nav class="nav nav-masthead justify-content-center">
+          <a class="nav-link" href="./index.html">¿Qué es Tachiyomi?</a>
+          <a class="nav-link" href="./features.html">Features</a>
+          <a class="nav-link" href="./uxui.html">UX/UI</a>
+          <a class="nav-link" href="./arq.html">Arquitectura</a>
+          <a class="nav-link active" href="./eventualConn.html">Conectividad Eventual</a>
+          <a class="nav-link" href="./performance.html">Performance</a>
+          <a class="nav-link" href="./conclusion.html">Conclusiones</a>
+          <a class="nav-link" href="./us.html">¿Quienes somos?</a>
+          <a class="nav-link" href="./try.html">Try it yourself</a>
+        </nav>
+      </div>
+    </header>
 
-    <main class="inner cover">
-      <div class="welcome">
+    <main class="inner cover2">
+      <div class="welcome2">
         <h1 class="cover-heading">Manejo de Conectividad Eventual</h1>
-        <p class="lead">En cuanto a conectividad eventual, la aplicación incurre de forma generalizada en varios antipatrones de conectividad eventual que serán mostrados en unos videos a continuación. Sin embargo, un punto alto para resaltar es que durante todas las pruebas realizadas a la aplicación, aunque existe un amplio uso de tareas en segundo plano que involucran conexión a internet, no se presentó ningún crash o bloqueo total de la aplicación (causando su cierre). Esto debido al correcto uso de la librería Nucleus que mantiene el último estado estado estable de la aplicación a pesar de los cambios en configuración</p>
+        <p class="lead">En cuanto a conectividad eventual, la aplicación incurre de forma generalizada en varios
+          antipatrones de conectividad eventual que serán mostrados en unos videos a continuación. Sin embargo, un punto
+          alto para resaltar es que durante todas las pruebas realizadas a la aplicación, aunque existe un amplio uso de
+          tareas en segundo plano que involucran conexión a internet, no se presentó ningún crash o bloqueo total de la
+          aplicación (causando su cierre). Esto debido al correcto uso de la librería Nucleus que mantiene el último
+          estado estado estable de la aplicación a pesar de los cambios en configuración</p>
         <div id="div-chevron" class="row">
           <img id="img-chevron" width="50rem" height="50rem" src="./images/chevron.png" alt="chevron-button">
         </div>
       </div>
-      <div class="row projects">
-        <div class="col-sm container-fluid" data-aos="fade-left">
-          <h1 class="about-me">DesparcheApp</h1>
-          <p class="about-me">
-
-            Have you ever been bored because you have nothing to do? We (<a href="mailto:if.garcia@uniandes.edu.co">Ivan
-              García</a>, <a href="mailto:m.neira10@uniandes.edu.co">Mauricio Neira</a>, <a
-              href="mailto:de.agudelo@uniandes.edu.co">Daniel Agudelo</a> and me) have the perfect web-app for you! Find
-            interesting plans and places around you! Check out a little presentation <a
-              href="https://docs.google.com/presentation/d/1AVSFfbuoYJ-B3qpimbKttrxGBdfNQOA70nXgpZI60B0/edit?usp=sharing"
-              target="_blank">here</a>.
-          </p>
+      <div class="music3" data-aos="fade-up">
+        <h1>Buen manejo de conectividad eventual</h1>
+        <p class="about-me"> No toda crítica es negativa y este es un aparte dedicado a resaltar las bondades, dadas en
+          términos de conectividad eventual, que existen dentro del app de Tachiyomi. En ellas se demuestra la
+          recuperación del estado de buen funcionamiento de la app una vez la conexión a internet se vuelve a recuperar
+        </p>
+        <div class="row projects">
+          <div class="col-sm container-fluid" data-aos="fade-left">
+            <h1 class="about-me"> Recuperación ante reconexión a internet No. 1</h1>
+            <p class="about-me">
+              En esta situación
+            </p>
+          </div>
+          <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
+            <iframe width="300" height="315" src="https://www.youtube.com/embed/ALX_iaT_81c" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
         </div>
-        <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
-          <img id="profile_photo" width="200vw" src="./images/uniandes.png" alt="Desparche app">
+        <div class="row projects">
+          <div class="col-sm container-fluid" data-aos="fade-left">
+            <h1 class="about-me"> Recuperación ante reconexión a internet No. 2</h1>
+            <p class="about-me">
+              En esta situación
+            </p>
+          </div>
+          <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
+            <iframe width="300" height="315" src="https://www.youtube.com/embed/Vyb8ESMqWoA" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
         </div>
+        <div class="row projects">
+          <div class="col-sm container-fluid" data-aos="fade-left">
+            <h1 class="about-me"> Manejo correcto de descarga de extensiones</h1>
+            <p class="about-me">
+              En esta situación
+            </p>
+          </div>
+          <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
+            <iframe width="300" height="315" src="https://www.youtube.com/embed/Xguk71Wgu10" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <h2>Caching</h2>
+        <p>De igual forma, es de resaltar el uso de caching como estrategia para mantener un nivel de servicio a pesar
+          de las fallas de red (mejora en la resiliencia como atributo de calidad). Este uso se ve representado en el
+          caché para capítulos de manga descargados o para aquellas descargas que no se han completado, además del uso
+          de Glide para realizar caché sobre las portadas de los cómics que están siendo utilizados. Cabe aclarar que
+          este algunos de estos ejemplos de caching tienen una vigencia temporal como se ve en el siguiente ejemplo
+          obtenido de DownloadCache.kt
+          [tachiyomi-0.8.4/app/src/main/java/eu/kanade/tachiyomi/data/download/DownloadCache.kt] </p>
+        <script src="https://gist.github.com/jframos29/ef57994db123baa7bfdc7f3c8fd772ad.js"></script>
       </div>
-      <div class="row projects">
-        <div class="col-sm container-fluid" data-aos="fade-left">
-          <h1 class="about-me">DesparcheApp</h1>
-          <p class="about-me">
-
-            Have you ever been bored because you have nothing to do? We (<a href="mailto:if.garcia@uniandes.edu.co">Ivan
-              García</a>, <a href="mailto:m.neira10@uniandes.edu.co">Mauricio Neira</a>, <a
-              href="mailto:de.agudelo@uniandes.edu.co">Daniel Agudelo</a> and me) have the perfect web-app for you! Find
-            interesting plans and places around you! Check out a little presentation <a
-              href="https://docs.google.com/presentation/d/1AVSFfbuoYJ-B3qpimbKttrxGBdfNQOA70nXgpZI60B0/edit?usp=sharing"
-              target="_blank">here</a>.
-          </p>
+      <div class="music3" data-aos="fade-up">
+        <h1>Mal manejo de conectividad eventual</h1>
+        <p>Los antipatrones de Conectividad Eventual encontrados están relacionados con tres grandes familias de
+          antipatrones de conectividad: Non-informative message, Non-existent Result Notification y Lost Content. A
+          partir de esto, es posible determinar los siguientes antipatrones con videos demostrativos</p>
+        <h2>Non-informative message</h2>
+        <p>Esta sección describe todo aquello error relacionado con conectividad eventual en el cual su ejecución
+          resulta en un mensaje que no da la información suficiente como para reconocer correctamente el problema</p>
+        <h3>Messages with exception trace</h3>
+        <p>En estos casos se puede ver cómo los mensajes dados no son claros para el usuario al ser errores
+          computacionales (excepciones) que se usan en un ambiente técnico.</p>
+        <div class="row projects">
+          <div class="col-sm container-fluid" data-aos="fade-left">
+            <h1 class="about-me"> Message with exception trace No. 1</h1>
+            <p class="about-me">
+              En esta situación
+            </p>
+          </div>
+          <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
+            <iframe width="300" height="315" src="https://www.youtube.com/embed/3mj9QR0Wx98" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
         </div>
-        <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
-          <img id="profile_photo" width="200vw" src="./images/uniandes.png" alt="Desparche app">
+        <div class="row projects">
+          <div class="col-sm container-fluid" data-aos="fade-left">
+            <h1 class="about-me"> Message with exception trace No. 2</h1>
+            <p class="about-me">
+              En esta situación
+            </p>
+          </div>
+          <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
+            <iframe width="300" height="315" src="https://www.youtube.com/embed/eEUzagt0S_s" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
         </div>
-      </div>
-      <div class="row projects">
-        <div class="col-sm container-fluid" data-aos="fade-left">
-          <h1 class="about-me">DesparcheApp</h1>
-          <p class="about-me">
-
-            Have you ever been bored because you have nothing to do? We (<a href="mailto:if.garcia@uniandes.edu.co">Ivan
-              García</a>, <a href="mailto:m.neira10@uniandes.edu.co">Mauricio Neira</a>, <a
-              href="mailto:de.agudelo@uniandes.edu.co">Daniel Agudelo</a> and me) have the perfect web-app for you! Find
-            interesting plans and places around you! Check out a little presentation <a
-              href="https://docs.google.com/presentation/d/1AVSFfbuoYJ-B3qpimbKttrxGBdfNQOA70nXgpZI60B0/edit?usp=sharing"
-              target="_blank">here</a>.
-          </p>
+        <div class="row projects">
+          <div class="col-sm container-fluid" data-aos="fade-left">
+            <h1 class="about-me"> Message with exception trace No. 3</h1>
+            <p class="about-me">
+              En esta situación
+            </p>
+          </div>
+          <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
+            <iframe width="300" height="315" src="https://www.youtube.com/embed/jGaVq7RrOcw" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
         </div>
-        <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
-          <img id="profile_photo" width="200vw" src="./images/uniandes.png" alt="Desparche app">
+        <div class="row projects">
+          <div class="col-sm container-fluid" data-aos="fade-left">
+            <h1 class="about-me"> Message with exception trace No. 4</h1>
+            <p class="about-me">
+              En esta situación
+            </p>
+          </div>
+          <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
+            <iframe width="300" height="315" src="https://www.youtube.com/embed/Ehs-YfCL5o4" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="row projects">
+          <div class="col-sm container-fluid" data-aos="fade-left">
+            <h1 class="about-me"> Message with exception trace No. 5</h1>
+            <p class="about-me">
+              En esta situación
+            </p>
+          </div>
+          <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
+            <iframe width="300" height="315" src="https://www.youtube.com/embed/1VSkUJQIKk0" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="row projects">
+          <div class="col-sm container-fluid" data-aos="fade-left">
+            <h1 class="about-me"> Message with exception trace No. 6</h1>
+            <p class="about-me">
+              En esta situación
+            </p>
+          </div>
+          <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
+            <iframe width="300" height="315" src="https://www.youtube.com/embed/QEQ5uWh5nJE" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <h3>Inconsistent Messages</h3>
+        <p>En este sub-aparte se tratan todos aquellos mensajes que no son expresivos por ser siempre brindados al usuario aunque
+          el estado de la aplicación cambie.</p>
+        <div class="row projects">
+          <div class="col-sm container-fluid" data-aos="fade-left">
+            <h1 class="about-me"> Inconsistent message No. 1</h1>
+            <p class="about-me">
+              En este caso, con o sin conexión a Internet, el mensaje de carga de los mangas disponibles no cambia, lo
+              cual genera inconsistencia entre los estados de carga.
+            </p>
+          </div>
+          <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
+            <iframe width="300" height="315" src="https://www.youtube.com/embed/a27boRtgcLM" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <h2>Lost content</h2>
+        <p>En esta sección se tratan todos los errores que, apartir de una conexión inestable o inexistente, generan,
+          naturalmente o no, la pérdida de contenido (o información) para brindar al usuario</p>
+        <h3>Blank images</h3>
+        <p>Aquí, en el momento en que se pierde la conexión a internet, las imagenes que estaban siendo cargadas se
+          pierden y las carátulas de los mangas se convierten en imagenes inexpresivas</p>
+        <div class="row projects">
+          <div class="col-sm container-fluid" data-aos="fade-left">
+            <h1 class="about-me"> Blank Image No. 1</h1>
+            <p class="about-me">
+              En esta situación
+            </p>
+          </div>
+          <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
+            <iframe width="300" height="315" src="https://www.youtube.com/embed/FHJSCreOPq4" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="row projects">
+          <div class="col-sm container-fluid" data-aos="fade-left">
+            <h1 class="about-me"> Blank Image No. 2</h1>
+            <p class="about-me">
+              En esta situación
+            </p>
+          </div>
+          <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
+            <iframe width="300" height="315" src="https://www.youtube.com/embed/97utn7BM9Zw" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <h3>Lost pages</h3>
+        <p>Aquí, en el momento en que se pierde la conexión a internet, las páginas que estaban siendo cargadas se
+          pierden y el contenido de los mangas se convierte en botones inexpresivos</p>
+        <div class="row projects">
+          <div class="col-sm container-fluid" data-aos="fade-left">
+            <h1 class="about-me"> Lost page No. 1</h1>
+            <p class="about-me">
+              En esta situación
+            </p>
+          </div>
+          <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
+            <iframe width="300" height="315" src="https://www.youtube.com/embed/BRZh2TWZwDQ" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <h2>Non-existent Result Notification</h2>
+        <p>En este aparte se tratan los errores que consisten en la falta de comunicación con el usuario a la hora de
+          informarle sobre el resultado de un evento que se estaba gestando cuando un cambio en la conexión a internet o
+          a la hora de informarle sobre la necesidad de reiniciar dicho proceso manualmente.
+        </p>
+        <h3>Nonexistent notification of retrying an action</h3>
+        <p>En este caso, mientras se estaba dando un proceso de descarga, aunque la aplicación lanza una notificación de
+          error que contiene trazas de una excepción</p>
+        <div class="row projects">
+          <div class="col-sm container-fluid" data-aos="fade-left">
+            <h1 class="about-me"> Nonexistent notification of retrying an action No. 1</h1>
+            <p class="about-me">
+              En esta situación
+            </p>
+          </div>
+          <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
+            <iframe width="300" height="315" src="https://www.youtube.com/embed/s5rdf5LhxuU" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
         </div>
       </div>
     </main>
     <footer class="mastfoot mt-auto">
       <div class="inner row">
         <div class="col-sm">
-          <p>Contact me! <a href="mailto:juferamos@outlook.com"><img title="Send me an email" class="email"
+          <p>Contact me! <a href="mailto:juferamos@outlook.com"><img title="Send us an email" class="email"
                 height="13rem" width="17rem" src="./images/email.png" alt="Email link"></a><a
-              href="https://github.com/jframos29" target="_blank"><img title="Watch my github page" class="email"
-                height="17rem" width="17rem" src="./images/github.png" alt="github link"></a></p>
+              href="https://github.com/mobileDevReport/" target="_blank"><img title="Watch our github page"
+                class="email" height="17rem" width="17rem" src="./images/github.png" alt="github link"></a></p>
         </div>
         <div class="col-sm">
           <p id="despedida">A digito cognoscitur leo</p>
