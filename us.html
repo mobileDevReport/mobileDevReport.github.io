@@ -3,9 +3,6 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="author" content="Juan Felipe Ramos Correa, Sergio Eduardo Cardenas Landazabal">
-  <meta name="keywords" content="Tachiyomi, Mobile Development, Uniandes">
-  <meta name="description" content="My web page">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -19,7 +16,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-  <script src="./script.js"></script>
+  <script src="./script2.js"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="icon" href="./images/ic_launcher-web.png" />
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
@@ -48,59 +45,44 @@
     </header>
 
     <main class="inner cover">
-      <div class="welcome">
-        <h1 class="cover-heading">Reporte de Tachiyomi</h1>
-        <p class="lead">Este es el reporte para el curso de Construcción de aplicaciones Moviles hecho por Juan Felipe Ramos y Sergio Eduardo Cárdenas</p>
-        <p class="lead" id="soy">En este reporte vamos a analizar <span id="abilities"></span></p>
-        <p class="lead">Comencemos!</p>
+      <div class="welcome2">
+        <h1 class="cover-heading">¿Quienes somos?</h1>
+        <p class="lead">Este equipo de consultores está conformado por dos estudiantes de las carreras de Ingeniería
+          Electrónica e Ingeniería de Sistemas de la Universidad de Los Andes</p>
         <div id="div-chevron" class="row">
           <img id="img-chevron" width="50rem" height="50rem" src="./images/chevron.png" alt="chevron-button">
         </div>
       </div>
-      <div class="row about-me2">
-        <div class="col-sm container-fluid" data-aos="fade-up">
-          <h1 class="about-me music"> ¿Qué es Tachiyomi?</h1>
-          <p class="about-me">Tachiyomi es una aplicación open source que funciona como un lector de mangas (cómics japoneses) gratuito en el que
-             el usuario puede acceder a varias fuentes de mangas y consumirlos, descargandolos. Adicionalmente, los usuarios pueden agregar a
-             la aplicación aquellos Mangas que guardan localmente y, en caso de necesitarlo, realizar un backup del estado actual de todos los
-             mangas que se están leyendo. </p>
-        </div>
-      </div>
-      <div class="row" data-aos="zoom-out">
-        <div class="col-sm">
-          <h1 class="things">Lista de funcionalidades</h1>
-          <p class="music2">
-            Aqui se listan las funcionalidades de Tachiyomi, con el fin de tenerlas en cuenta a la hora de realizar el análisis en de experiencia de usuario, en términos arquitecturales, y en términos de conectividad eventual. De igual forma, dichas funcionalidades serán explicadas a fondo en el aparte de features.
+      <div class="row projects">
+        <div class="col-sm container-fluid" data-aos="fade-left">
+          <h1> Juan Felipe Ramos Correa</h1>
+          <p class="about-me">
+            Juan Felipe Ramos es
           </p>
         </div>
+        <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
+          <img id="profile_photo" width="200vw" src="./images/ramos.jpg" alt="My picture">
+        </div>
       </div>
-      <div class="came-from" data-aos="fade-right">
-        <h5>Tachiyomi</h5>
-        <div class="media">
-          <div class="media-img">
-            <a href="https://tachiyomi.org/" target="_blank"><img class="align-self-start mr-3 img-uniandes"
-                width="110vw" height="110vh" src="./images/ic_launcher-web.png" alt="Tachiyomi logo">
-            </a>
-          </div>
-          <div class="media-body">
-            <ul>
-              <li data-aos="fade-right"> Descarga de cómics de fuentes de mangas (Extensiones)</li>
-              <li data-aos="fade-right"> Selección de extensiones disponibles a utilizar de una lista</li>
-              <li data-aos="fade-right"> Adición de mangas del usuario a la plataforma (dichos mangas deben estar en el almacenamiento externo del teléfono)</li>
-              <li data-aos="fade-right"> Lector de mangas con conteo de páginas leídas y capacidad de hacer zoom</li>
-              <li data-aos="fade-right"> Login en diferentes páginas de tracking de Manga como <a href="https://anilist.co/" target="_blank">AniList</a>, en donde el usuario sabe la cantidad de capítulos que ha leído de todos los mangas que ha decidido leer</li>
-            </ul>
-          </div>
+      <div class="row projects">
+        <div class="col-sm container-fluid" data-aos="fade-left">
+          <h1>Sergio Eduardo Cardenas Landazabal</h1>
+          <p class="about-me">
+            Sergio Eduardo Cárdenas es
+          </p>
+        </div>
+        <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
+          <img id="profile_photo" width="200vw" src="./images/gato.jpg" alt="My picture">
         </div>
       </div>
     </main>
     <footer class="mastfoot mt-auto">
       <div class="inner row">
         <div class="col-sm">
-          <p>Contact us! <a href="mailto:juferamos@outlook.com"><img title="Send an email" class="email"
+          <p>Contact me! <a href="mailto:juferamos@outlook.com"><img title="Send us an email" class="email"
                 height="13rem" width="17rem" src="./images/email.png" alt="Email link"></a><a
-              href="https://github.com/mobileDevReport/" target="_blank"><img title="Organization Github page" class="email"
-                height="17rem" width="17rem" src="./images/github.png" alt="github link"></a></p>
+              href="https://github.com/mobileDevReport/" target="_blank"><img title="Watch our github page"
+                class="email" height="17rem" width="17rem" src="./images/github.png" alt="github link"></a></p>
         </div>
         <div class="col-sm">
           <p id="despedida">A digito cognoscitur leo</p>
