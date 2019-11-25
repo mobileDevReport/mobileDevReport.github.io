@@ -114,42 +114,86 @@
       <div class="row projects">
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Camio de página</h2>
+          <p class="about-me">
+            Se observa que cada vez que se cambia de página, aumenta ligeramente el uso de memoria y se presenta uso 
+            de red y CPU por un breve periodo de tiempo, debido a la descarga de una imagen y a la animación de 
+            cambio de página. Dado que anteriormente se observó que se descargan varias imágenes al abrir un capítulo, 
+            se puede inferir que al cambiar de página se descarga la imagen correspondiente a la siguiente página 
+            no descargada. Esto implica que se tiene una ventana de imágenes a descargar dada la página actual con el 
+            fin de evitar en la medida de lo posible que una página aún se esté descargando al llegar a dicha página 
+            en el lector.
+          </p>
           <img id="profile_photo" width="590vw" src="./images/Performace7.png" alt="">
         </div>
       </div>
       <div class="row projects">
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Cambio Rápido de página</h2>
+          <p class="about-me">
+            En este caso, se cambió de página rápidamente y repetidas veces. Como se esperaba dado lo obtenido 
+            anteriormente, se presenta un uso de red y de CPU prolongado, proporcional al número de páginas a 
+            descargar. Uno de los problemas detectados al realizar esto, es que se descargan imágenes que luego no 
+            son desplegadas, por ejemplo, pasando rápidamente de la página 1 a la 30, páginas como de la 10 a la 20 
+            no deberían descargarse, pues es una página muy alejada a la página 30, y no ha sido previamente 
+            descargada al estar lejos de la página 1. Adicionalmente, se observa que se dispara un evento de GC 
+            debido a que varias imágenes ya no necesitan estar en memoria. Este evento no afecta la GUI, ya que no 
+            se presenta GUI Lagging.
+          </p>
           <img id="profile_photo" width="590vw" src="./images/Performace8.png" alt="">
         </div>
       </div>
       <div class="row projects">
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Cambio de página (sentido contrario)</h2>
+          <p class="about-me">
+            En esta ocasión, se cambió de páginas rápidamente, pero hacia el sentido contrario. No hay uso de red, 
+            pues las imágenes ya están descargadas. Al realizar esto, se lanzan varios eventos de GC, cosa que no 
+            pasó al cambiar las páginas en el otro sentido. Esto se debe a que, en el caso anterior, las imágenes 
+            aún no estaban descargadas, por lo que no ocupan espacio en memoria, y al descargarse, no necesitan 
+            guardarse en memoria, pues no se están desplegando. En el caso actual, las imágenes ya están descargadas, 
+            por lo que al cambiar de página, es necesario cargarlas a memoria para desplegarlas. Esto provoca aumento 
+            en el uso de memoria por la carga de estas imágenes, y el lanzamiento de eventos de GC para quitar las 
+            imágenes que ya no se está usando. Se supera el umbral de 128 MB de uso de memoria en múltiples ocasiones.
+          </p>
           <img id="profile_photo" width="590vw" src="./images/Performace9.png" alt="">
         </div>
       </div>
       <div class="row projects">
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Nuevo capítulo</h2>
+          <p class="about-me">
+            Al cambiar de capítulo, ocurre lo mismo que cuando se abre un nuevo capítulo, pues se descargan las 
+            primeras imágenes al mismo tiempo.
+          </p>
           <img id="profile_photo" width="590vw" src="./images/Performace10.png" alt="">
         </div>
       </div>
       <div class="row projects">
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Cambio de color de páginas</h2>
+          <p class="about-me">
+            En este caso, el uso de CPU se mantiene mientras se varía el color de las páginas. Mientras tanto, el uso 
+            de memoria es bastante irregular.
+          </p>
           <img id="profile_photo" width="590vw" src="./images/Performace11.png" alt="">
         </div>
       </div>
       <div class="row projects">
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Lista de capítulos (scroll)</h2>
+          <p class="about-me">
+            Al realizar scroll en la lista de capítulos de un manga, se presenta un aumento constante en el uso de 
+            memoria, finalizando con un evento de GC y un pico en el uso de CPU de más del 60%.
+          </p>
           <img id="profile_photo" width="590vw" src="./images/Performace12.png" alt="">
         </div>
       </div>
       <div class="row projects">
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Descarga de capítulos</h2>
+          <p class="about-me">
+            Al descargar varios capítulos, 
+          </p>
           <img id="profile_photo" width="590vw" src="./images/Performace13.png" alt="">
         </div>
       </div>
