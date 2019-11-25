@@ -54,12 +54,22 @@
       <div class="row projects">
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Página principal</h2>
+          <p class="aout-me">
+            Se observa un aumento rápido en el uso de la memoria, estabilizándose en 57 MB. El uso de CPU se 
+            mantuvo por debajo del 50%. Nada fuera de lo comúm.
+          </p>
           <img id="profile_photo" width="590vw" src="./images/Performace1.png" alt="">
         </div>
       </div>
       <div class="row projects">
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Catálogo de mangas</h2>
+          <p>
+            Al entrar al catálogo de mangas y scrollear hacia abajo, se observa un aumento rápido en el uso de la 
+            memoria debido a las imágenes que se deben desplegar. También hay un uso relativamente constante en la 
+            CPU y red debido a realizar el scroll y la descarga de las imágenes respectivamente. En este punto, el 
+            uso de memoria está en torno a los 100 MB.
+          </p>
           <img id="profile_photo" width="590vw" src="./images/Performace2.png" alt="">
           <img id="profile_photo" width="590vw" src="./images/Performace3.png" alt="">
         </div>
@@ -67,18 +77,33 @@
       <div class="row projects">
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Detalle de un manga</h2>
+          <p class="about-me">
+            Entrar al detalle de un capítulo solo requiere de uso de CPU, por lo que se puede inferir que la información 
+            del capítulo se descarga junto con las imágenes.
+          </p>
           <img id="profile_photo" width="590vw" src="./images/Performace4.png" alt="">
         </div>
       </div>
       <div class="row projects">
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Lista de capítulos</h2>
+          <p class="about-me">
+            Se abrió la lista de capítulos para un manga y se realizaron operaciones, tales como cambiar el orden 
+            en los que se despliegan los capítulos y cambiar el modo de despliegue de los capítulos. Al hacer esto, 
+            no solo hay un uso de CPU, sino que también varía el uso de memoria: se observa que se lanzan varios 
+            eventos de GC. Sin embargo, se puede ver que la memoria liberada vuelve a usarse rápidamente. Esto 
+            claramente es contraproducente para el performance. En esta pantalla se presentó GUI Lagging, seguramente 
+            por los eventos de GC.
+          </p>
           <img id="profile_photo" width="590vw" src="./images/Performace5.png" alt="">
         </div>
       </div>
       <div class="row projects">
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Capítulo específico</h2>
+          <p class="about-me">
+            Se procedió a abrir un capítulo específico. 
+          </p>
           <img id="profile_photo" width="590vw" src="./images/Performace6.png" alt="">
         </div>
       </div>
