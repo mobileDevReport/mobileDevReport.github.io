@@ -100,6 +100,25 @@
             del problema que plantea solucionar.</p>
         </div>
       </div>
+      <div class="row about-me2">
+        <div class="col-sm container-fluid" data-aos="fade-up">
+          <h1 class="about-me music"> Conclusiones sobre Performance</h1>
+          <p class="about-me">
+            En términos generales, Tachiyomi tiene un rendimiento aceptable. El manejo de descarga de 
+            capítulos para visualizarlos online se puede mejorar, pues hay casos en los que se descargan páginas 
+            que luego no son mostradas en el visualizador. Es necesario una herramienta para dejar de descargar 
+            páginas de un capítulo que ya no serán útiles en el corto plazo. El uso de memoria es bastante elevado; 
+            sin embargo, es justificado por el manejo de imágenes en el lector y otras vistas. El problema es que 
+            los eventos de Garbage Collection suelen dispararse en el lector de capítulos y no en otras vistas, por 
+            lo que no se está eliminando de memoria datos que no se usan. También se detectó un posible memory leak 
+            en la aplicación, por lo que es necesario detectar la fuente de esto y corregirlo, aunque dihco memory 
+            leak no sea muy grave. Finalmente, no tiene sentido tener dos funcionalidades que hacen esencialmente 
+            lo mismo de distintas maneras, así que se sugiere eliminar una de las funcionalidades de abrir manga 
+            en el navegador y abrir manga en vista web. Para esto último, se requiere evaluar cuál de las 
+            alternativas es la mejor en términos de uso de CPU y memoria.
+          </p>
+        </div>
+      </div>
     </main>
     <footer class="mastfoot mt-auto">
       <div class="inner row">
