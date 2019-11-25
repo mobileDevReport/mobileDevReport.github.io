@@ -59,13 +59,45 @@
       <div class="row about-me2">
         <div class="col-sm container-fluid" data-aos="fade-up">
           <h1 class="about-me music"> Conclusiones sobre Arquitectura</h1>
-          <p class="about-me">Tachiyomi </p>
+          <p class="about-me">En cuanto a la arquitectura de software que presenta Tachiyomi, cabe resaltar que es una
+            arquitectura muy particular dentro del ecosistema Android al usar el patrón MVP (típico en iOS) que,
+            mediante el desuso de Fragmentos, intenta dar una robusta reactividad a la consecución de tareas, de alto
+            impacto o no, realizadas en segundo plano. Para la ejecución de este patrón, Tachiyomi hace uso de la
+            librería Nucleus que, en conjunto con ReactiveX, garantiza la realización correcta de tareas en segundo
+            plano. Teniendo este esquema en cuenta, solo hay dos posibles falencias que se podrían presentar, una de las
+            cuales es tratada dentro de este reporte: el manejo deficiente de conectividad eventual. Aunque Nucleus está
+            hecha para resistir cambios de configuración (como la caída en la conexión a Internet), hay un caso en el
+            que durante la descarga de mangas, a pesar de que ésta se pausa hasta garantizar la reconexión a Internet,
+            la
+            misma no se reanuda de manera automática, ni se notifica al usuario de la necesidad de su reactivación
+            manual. A pesar de que esto no supone un fallo estructural considerable, sí reduce la experiencia de usuario
+            y desaprovecha la capacidad de Nucleus, además de demostrar la importancia en el manejo de la conectividad
+            eventual. De igual forma, el uso de Nucleus, en comparación con una arquitectura Redux, por ejemplo, supone
+            una menor capacidad arquitectónica para escalar el funcionamiento de Tachiyomi.
+            Es de esta manera que esta consultoria propone un mejor manejo de conectividad eventual, que será descrito
+            de emjor manera en el siguiente aparte y una eventual migración a una arquitectura Redux, mediante el uso de
+            la librería ReKotlin, por ejemplo.</p>
         </div>
       </div>
       <div class="row about-me2">
         <div class="col-sm container-fluid" data-aos="fade-up">
           <h1 class="about-me music"> Conclusiones sobre Conectividad Eventual</h1>
-          <p class="about-me">Tachiyomi </p>
+          <p class="about-me">En cuanto a conectividad eventual, Tachiyomi presenta ligeros errores (a decir por el
+            enfoque de
+            los autores de la aplicación) en el manejo de la
+            comunicación con el usuario respecto a errores dados por fallas en la conexión a Internet. De igual manera,
+            Tachiyomi cae, como fue mostrado, en el error de no automatizar por completo las descargas en sus librerías
+            de manga y, de
+            igual manera, no recurre a informale al usuario sobre la necesidad de una reactivación manual. Esto supone
+            una debilidad en el uso de la aplicación y aunque no es un error estructural, ni genera crashes o bloqueos
+            totales, debe corregirse de inmediato para progresar con la robustez que es mencionada en este reporte y la
+            cual le vale el satisfacer correctamente la necesidad de los usuarios de encontrar un lector de manga para
+            Android gratuito y open source.
+            De toda esta forma, los autores de este reporte proponen la realización de una manejador de errores más
+            robusto (que bien podría seguir el patrón Singleton), de tal forma que los errores sean mucho más
+            informativos y que el manejo de caché (dado de forma manual y con el uso de la librería Glide) sea mucho más
+            visible para el usuario. Corrigiendo este error, Tachiyomi propone una alternativa exitosa a la resolución
+            del problema que plantea solucionar.</p>
         </div>
       </div>
     </main>
