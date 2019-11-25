@@ -192,7 +192,8 @@
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Descarga de capítulos</h2>
           <p class="about-me">
-            Al descargar varios capítulos, 
+            Al descargar varios capítulos, el uso de red es constante la mayoría del tiempo, tal como se esperaba. 
+            En este caso, el uso de CPU se mantiene bastante bajo, mientras que el uso de memoria es constante. 
           </p>
           <img id="profile_photo" width="590vw" src="./images/Performace13.png" alt="">
         </div>
@@ -200,18 +201,32 @@
       <div class="row projects">
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Botón de home</h2>
+          <p class="about-me">
+            Cuando se presiona el botón de Home, la memoria disminuye considerablemente debido a un evento de GC.
+          </p>
           <img id="profile_photo" width="590vw" src="./images/Performace14.png" alt="">
         </div>
       </div>
       <div class="row projects">
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Volver a la app</h2>
+          <p class="about-me">
+            Antes de volver a la app, se reanuda la descarga de capítulos, por lo que se presenta uso de red y CPU. 
+            Al cambiar la app a primer plano, aumenta ligeramente el uso de memoria. Además de esto, se observa que 
+            el uso de memoria luego de volver a la app es ligeramente menor al uso antes de volver al home, por lo 
+            que es posible que haya un memory leak.
+          </p>
           <img id="profile_photo" width="590vw" src="./images/Performace15.png" alt="">
         </div>
       </div>
       <div class="row projects">
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Visualizador de capítulos (Entrar y salir rápidamente)</h2>
+          <p class="about-me">
+            Al realizar esta acción, el uso de memoria aumenta cada vez que se empieza a visualizar un capítulo, y se 
+            lanza un evento de GC al salir del visualizador. Pese a que se lancen varios eventos de GC, estos solo 
+            se lanzan al volver al listado de capítulos, por lo que no se presenta GUI Lagging.
+          </p>
           <img id="profile_photo" width="590vw" src="./images/Performace16.png" alt="">
           <img id="profile_photo" width="590vw" src="./images/Performace17.png" alt="">
         </div>
@@ -219,49 +234,65 @@
       <div class="row projects">
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Extensiones</h2>
+          <p class="about-me">
+            En la actividad de la lista de extensiones disponibles, al realizar scroll en esta vista, se presenta 
+            un uso de CPU bastante elevado, alcanzando casi un 60% de uso. Adicionalmente, el uso de memoria aumenta 
+            ligeramente.
+          </p>
           <img id="profile_photo" width="590vw" src="./images/Performace18.png" alt="">
         </div>
       </div>
       <div class="row projects">
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Instalación de extensiones</h2>
+          <p class="about-me">
+            Al instalar una extensión, se lanza una actividad que no es de la aplicación, por lo que ésta pasa a 
+            estar en segundo plano, disminuyendo su uso de memoria.
+          </p>
           <img id="profile_photo" width="590vw" src="./images/Performace19.png" alt="">
         </div>
       </div>
       <div class="row projects">
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Zoom in/out</h2>
+          <p class="about-me">
+            Se realizó Zoom in/out rápidamente en una página mientras es visualizada en el lector. El uso de CPU es 
+            bastante reducido, por lo que el manejo de estas operaciones es eficiente.
+          </p>
           <img id="profile_photo" width="590vw" src="./images/Performace20.png" alt="">
         </div>
       </div>
       <div class="row projects">
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Rotación de pantalla</h2>
+          <p class="about-me">
+            Al rotar la pantalla múltiples veces, el uso de memoria disminuye momentáneamente para luego volver a 
+            aumentar cada vez que hay una rotación. El estado de la aplicación se mantiene gracias al uso de Nucleus.
+          </p>
           <img id="profile_photo" width="590vw" src="./images/Performace21.png" alt="">
         </div>
       </div>
       <div class="row projects">
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
-          <h2 class="about-me">Scale type</h2>
-          <img id="profile_photo" width="590vw" src="./images/Performace22.png" alt="">
-        </div>
-      </div>
-      <div class="row projects">
-        <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Open in browser</h2>
+          <p class="about-me">
+            Esta acción lanza una Actividad de otra aplicación, por lo que el uso de memoria de la aplicación 
+            disminuye considerablemente al pasar a segundo plano.
+          </p>
           <img id="profile_photo" width="590vw" src="./images/Performace23.png" alt="">
         </div>
       </div>
       <div class="row projects">
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Open web view</h2>
+          <p class="about-me">
+            Aunque esta funcionalidad es muy similar a la anterior, tienen una diferencia fundamental: esta vez no 
+            se lanza una Actividad de otra aplicación, por lo que la aplicación sigue en segundo plano. El uso de 
+            CPU es bastante elevado, llegando a más del 65%, debido al renderizado de los componentes web de la 
+            vista. el uso de memoria aumenta hasta cerca de 100 MB. Es difícil saber cuál de las dos funcionalidades 
+            es la más adecuada, pues no se puede monitorear el uso de recursos de otras aplicaciones tan fácilmente.
+          </p>
           <img id="profile_photo" width="590vw" src="./images/Performace24.png" alt="">
-        </div>
-      </div>
-      <div class="row projects">
-        <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
-          <h2 class="about-me">Búsqueda de manga</h2>
-          <img id="profile_photo" width="590vw" src="./images/Performace25.png" alt="">
         </div>
       </div>
     </main>
