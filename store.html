@@ -75,7 +75,7 @@
             eventual. De igual forma, el uso de Nucleus, en comparación con una arquitectura Redux, por ejemplo, supone
             una menor capacidad arquitectónica para escalar el funcionamiento de Tachiyomi.
             Es de esta manera que esta consultoria propone un mejor manejo de conectividad eventual, que será descrito
-            de mejor manera en el siguiente aparte y una eventual migración a una arquitectura Redux, mediante el uso de
+            de emjor manera en el siguiente aparte y una eventual migración a una arquitectura Redux, mediante el uso de
             la librería ReKotlin, por ejemplo.</p>
         </div>
       </div>
@@ -93,10 +93,8 @@
             totales, debe corregirse de inmediato para progresar con la robustez que es mencionada en este reporte y la
             cual le vale el satisfacer correctamente la necesidad de los usuarios de encontrar un lector de manga para
             Android gratuito y open source.
-            De toda esta forma, aunque se corrigieron los errores de conectividad eventual mediante el uso de mensajes
-            más expresivos para el usuario, los autores de este reporte proponen la realización de una manejador de
-            errores más robusto (que bien podría seguir el patrón Singleton), de tal forma que los errores sean mucho
-            más
+            De toda esta forma, los autores de este reporte proponen la realización de una manejador de errores más
+            robusto (que bien podría seguir el patrón Singleton), de tal forma que los errores sean mucho más
             informativos y que el manejo de caché (dado de forma manual y con el uso de la librería Glide) sea mucho más
             visible para el usuario. Corrigiendo este error, Tachiyomi propone una alternativa exitosa a la resolución
             del problema que plantea solucionar.</p>
@@ -106,17 +104,17 @@
         <div class="col-sm container-fluid" data-aos="fade-up">
           <h1 class="about-me music"> Conclusiones sobre Performance</h1>
           <p class="about-me">
-            En términos generales, Tachiyomi tiene un rendimiento aceptable. El manejo de descarga de
-            capítulos para visualizarlos online se puede mejorar, pues hay casos en los que se descargan páginas
-            que luego no son mostradas en el visualizador. Es necesario una herramienta para dejar de descargar
-            páginas de un capítulo que ya no serán útiles en el corto plazo. El uso de memoria es bastante elevado;
-            sin embargo, es justificado por el manejo de imágenes en el lector y otras vistas. El problema es que
-            los eventos de Garbage Collection suelen dispararse en el lector de capítulos y no en otras vistas, por
-            lo que no se está eliminando de memoria datos que no se usan. También se detectó un posible memory leak
-            en la aplicación, por lo que es necesario detectar la fuente de esto y corregirlo, aunque dihco memory
-            leak no sea muy grave. Finalmente, no tiene sentido tener dos funcionalidades que hacen esencialmente
-            lo mismo de distintas maneras, así que se sugiere eliminar una de las funcionalidades de abrir manga
-            en el navegador y abrir manga en vista web. Para esto último, se requiere evaluar cuál de las
+            En términos generales, Tachiyomi tiene un rendimiento aceptable. El manejo de descarga de 
+            capítulos para visualizarlos online se puede mejorar, pues hay casos en los que se descargan páginas 
+            que luego no son mostradas en el visualizador. Es necesario una herramienta para dejar de descargar 
+            páginas de un capítulo que ya no serán útiles en el corto plazo. El uso de memoria es bastante elevado; 
+            sin embargo, es justificado por el manejo de imágenes en el lector y otras vistas. El problema es que 
+            los eventos de Garbage Collection suelen dispararse en el lector de capítulos y no en otras vistas, por 
+            lo que no se está eliminando de memoria datos que no se usan. También se detectó un posible memory leak 
+            en la aplicación, por lo que es necesario detectar la fuente de esto y corregirlo, aunque dihco memory 
+            leak no sea muy grave. Finalmente, no tiene sentido tener dos funcionalidades que hacen esencialmente 
+            lo mismo de distintas maneras, así que se sugiere eliminar una de las funcionalidades de abrir manga 
+            en el navegador y abrir manga en vista web. Para esto último, se requiere evaluar cuál de las 
             alternativas es la mejor en términos de uso de CPU y memoria.
           </p>
         </div>

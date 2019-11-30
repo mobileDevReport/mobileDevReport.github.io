@@ -25,24 +25,24 @@
 
 <body>
   <div class="cover-container container-fluid d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <header class="masthead mb-auto">
-          <div class="inner">
-            <a id="naviga" href="./index.html">
-              <h3 class="masthead-brand">Reporte de Tachiyomi</h3>
-            </a>
-            <nav class="nav nav-masthead justify-content-center">
-              <a class="nav-link" href="./index.html">¿Qué es Tachiyomi?</a>
-              <a class="nav-link" href="./features.html">Features</a>
-              <a class="nav-link" href="./uxui.html">UX/UI</a>
-              <a class="nav-link" href="./arq.html">Arquitectura</a>
-              <a class="nav-link" href="./eventualConn.html">Conectividad Eventual</a>
-              <a class="nav-link active" href="./performance.html">Performance</a>
-              <a class="nav-link" href="./conclusion.html">Conclusiones</a>
-              <a class="nav-link" href="./us.html">¿Quienes somos?</a>
-              <a class="nav-link" href="./try.html">Try it yourself</a>
-            </nav>
-          </div>
-        </header>
+    <header class="masthead mb-auto">
+      <div class="inner">
+        <a id="naviga" href="./index.html">
+          <h3 class="masthead-brand">Reporte de Tachiyomi</h3>
+        </a>
+        <nav class="nav nav-masthead justify-content-center">
+          <a class="nav-link" href="./index.html">¿Qué es Tachiyomi?</a>
+          <a class="nav-link" href="./features.html">Features</a>
+          <a class="nav-link" href="./uxui.html">UX/UI</a>
+          <a class="nav-link" href="./arq.html">Arquitectura</a>
+          <a class="nav-link" href="./eventualConn.html">Conectividad Eventual</a>
+          <a class="nav-link active" href="./performance.html">Performance</a>
+          <a class="nav-link" href="./conclusion.html">Conclusiones</a>
+          <a class="nav-link" href="./us.html">¿Quienes somos?</a>
+          <a class="nav-link" href="./try.html">Try it yourself</a>
+        </nav>
+      </div>
+    </header>
     <main class="inner cover">
       <div class="welcome">
         <h1 class="cover-heading">Análisis de rendimiento</h1>
@@ -55,7 +55,7 @@
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Página principal</h2>
           <p class="aout-me">
-            Se observa un aumento rápido en el uso de la memoria, estabilizándose en 57 MB. El uso de CPU se 
+            Se observa un aumento rápido en el uso de la memoria, estabilizándose en 57 MB. El uso de CPU se
             mantuvo por debajo del 50%. Nada fuera de lo comúm.
           </p>
           <img id="profile_photo" width="590vw" src="./images/Performace1.png" alt="">
@@ -65,9 +65,9 @@
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Catálogo de mangas</h2>
           <p>
-            Al entrar al catálogo de mangas y scrollear hacia abajo, se observa un aumento rápido en el uso de la 
-            memoria debido a las imágenes que se deben desplegar. También hay un uso relativamente constante en la 
-            CPU y red debido a realizar el scroll y la descarga de las imágenes respectivamente. En este punto, el 
+            Al entrar al catálogo de mangas y scrollear hacia abajo, se observa un aumento rápido en el uso de la
+            memoria debido a las imágenes que se deben desplegar. También hay un uso relativamente constante en la
+            CPU y red debido a realizar el scroll y la descarga de las imágenes respectivamente. En este punto, el
             uso de memoria está en torno a los 100 MB.
           </p>
           <img id="profile_photo" width="590vw" src="./images/Performace2.png" alt="">
@@ -78,7 +78,7 @@
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Detalle de un manga</h2>
           <p class="about-me">
-            Entrar al detalle de un capítulo solo requiere de uso de CPU, por lo que se puede inferir que la información 
+            Entrar al detalle de un capítulo solo requiere de uso de CPU, por lo que se puede inferir que la información
             del capítulo se descarga junto con las imágenes.
           </p>
           <img id="profile_photo" width="590vw" src="./images/Performace4.png" alt="">
@@ -88,11 +88,11 @@
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Lista de capítulos</h2>
           <p class="about-me">
-            Se abrió la lista de capítulos para un manga y se realizaron operaciones, tales como cambiar el orden 
-            en los que se despliegan los capítulos y cambiar el modo de despliegue de los capítulos. Al hacer esto, 
-            no solo hay un uso de CPU, sino que también varía el uso de memoria: se observa que se lanzan varios 
-            eventos de GC. Sin embargo, se puede ver que la memoria liberada vuelve a usarse rápidamente. Esto 
-            claramente es contraproducente para el performance. En esta pantalla se presentó GUI Lagging, seguramente 
+            Se abrió la lista de capítulos para un manga y se realizaron operaciones, tales como cambiar el orden
+            en los que se despliegan los capítulos y cambiar el modo de despliegue de los capítulos. Al hacer esto,
+            no solo hay un uso de CPU, sino que también varía el uso de memoria: se observa que se lanzan varios
+            eventos de GC. Sin embargo, se puede ver que la memoria liberada vuelve a usarse rápidamente. Esto
+            claramente es contraproducente para el performance. En esta pantalla se presentó GUI Lagging, seguramente
             por los eventos de GC.
           </p>
           <img id="profile_photo" width="590vw" src="./images/Performace5.png" alt="">
@@ -102,10 +102,10 @@
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Capítulo específico</h2>
           <p class="about-me">
-            Se procedió a abrir un capítulo específico. Se presenta un rápido aumento en el uso de la memoria, 
-            llegando a casi 130 MB. En este caso, no solo se descarga y se guarda en memoria la imagen de la 
-            página actual, sino que también se hace para las siguientes páginas para que ya estén listas cuando se 
-            cambie de página. Sin embargo, la primera página suele demorarse bastante tiempo en desplegarse. Esto 
+            Se procedió a abrir un capítulo específico. Se presenta un rápido aumento en el uso de la memoria,
+            llegando a casi 130 MB. En este caso, no solo se descarga y se guarda en memoria la imagen de la
+            página actual, sino que también se hace para las siguientes páginas para que ya estén listas cuando se
+            cambie de página. Sin embargo, la primera página suele demorarse bastante tiempo en desplegarse. Esto
             puede deberse a que las imágenes no se descargan secuencialmente, sino que se hace simultáneamente.
           </p>
           <img id="profile_photo" width="590vw" src="./images/Performace6.png" alt="">
@@ -115,12 +115,12 @@
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Camio de página</h2>
           <p class="about-me">
-            Se observa que cada vez que se cambia de página, aumenta ligeramente el uso de memoria y se presenta uso 
-            de red y CPU por un breve periodo de tiempo, debido a la descarga de una imagen y a la animación de 
-            cambio de página. Dado que anteriormente se observó que se descargan varias imágenes al abrir un capítulo, 
-            se puede inferir que al cambiar de página se descarga la imagen correspondiente a la siguiente página 
-            no descargada. Esto implica que se tiene una ventana de imágenes a descargar dada la página actual con el 
-            fin de evitar en la medida de lo posible que una página aún se esté descargando al llegar a dicha página 
+            Se observa que cada vez que se cambia de página, aumenta ligeramente el uso de memoria y se presenta uso
+            de red y CPU por un breve periodo de tiempo, debido a la descarga de una imagen y a la animación de
+            cambio de página. Dado que anteriormente se observó que se descargan varias imágenes al abrir un capítulo,
+            se puede inferir que al cambiar de página se descarga la imagen correspondiente a la siguiente página
+            no descargada. Esto implica que se tiene una ventana de imágenes a descargar dada la página actual con el
+            fin de evitar en la medida de lo posible que una página aún se esté descargando al llegar a dicha página
             en el lector.
           </p>
           <img id="profile_photo" width="590vw" src="./images/Performace7.png" alt="">
@@ -130,13 +130,13 @@
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Cambio Rápido de página</h2>
           <p class="about-me">
-            En este caso, se cambió de página rápidamente y repetidas veces. Como se esperaba dado lo obtenido 
-            anteriormente, se presenta un uso de red y de CPU prolongado, proporcional al número de páginas a 
-            descargar. Uno de los problemas detectados al realizar esto, es que se descargan imágenes que luego no 
-            son desplegadas, por ejemplo, pasando rápidamente de la página 1 a la 30, páginas como de la 10 a la 20 
-            no deberían descargarse, pues es una página muy alejada a la página 30, y no ha sido previamente 
-            descargada al estar lejos de la página 1. Adicionalmente, se observa que se dispara un evento de GC 
-            debido a que varias imágenes ya no necesitan estar en memoria. Este evento no afecta la GUI, ya que no 
+            En este caso, se cambió de página rápidamente y repetidas veces. Como se esperaba dado lo obtenido
+            anteriormente, se presenta un uso de red y de CPU prolongado, proporcional al número de páginas a
+            descargar. Uno de los problemas detectados al realizar esto, es que se descargan imágenes que luego no
+            son desplegadas, por ejemplo, pasando rápidamente de la página 1 a la 30, páginas como de la 10 a la 20
+            no deberían descargarse, pues es una página muy alejada a la página 30, y no ha sido previamente
+            descargada al estar lejos de la página 1. Adicionalmente, se observa que se dispara un evento de GC
+            debido a que varias imágenes ya no necesitan estar en memoria. Este evento no afecta la GUI, ya que no
             se presenta GUI Lagging.
           </p>
           <img id="profile_photo" width="590vw" src="./images/Performace8.png" alt="">
@@ -146,13 +146,13 @@
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Cambio de página (sentido contrario)</h2>
           <p class="about-me">
-            En esta ocasión, se cambió de páginas rápidamente, pero hacia el sentido contrario. No hay uso de red, 
-            pues las imágenes ya están descargadas. Al realizar esto, se lanzan varios eventos de GC, cosa que no 
-            pasó al cambiar las páginas en el otro sentido. Esto se debe a que, en el caso anterior, las imágenes 
-            aún no estaban descargadas, por lo que no ocupan espacio en memoria, y al descargarse, no necesitan 
-            guardarse en memoria, pues no se están desplegando. En el caso actual, las imágenes ya están descargadas, 
-            por lo que al cambiar de página, es necesario cargarlas a memoria para desplegarlas. Esto provoca aumento 
-            en el uso de memoria por la carga de estas imágenes, y el lanzamiento de eventos de GC para quitar las 
+            En esta ocasión, se cambió de páginas rápidamente, pero hacia el sentido contrario. No hay uso de red,
+            pues las imágenes ya están descargadas. Al realizar esto, se lanzan varios eventos de GC, cosa que no
+            pasó al cambiar las páginas en el otro sentido. Esto se debe a que, en el caso anterior, las imágenes
+            aún no estaban descargadas, por lo que no ocupan espacio en memoria, y al descargarse, no necesitan
+            guardarse en memoria, pues no se están desplegando. En el caso actual, las imágenes ya están descargadas,
+            por lo que al cambiar de página, es necesario cargarlas a memoria para desplegarlas. Esto provoca aumento
+            en el uso de memoria por la carga de estas imágenes, y el lanzamiento de eventos de GC para quitar las
             imágenes que ya no se está usando. Se supera el umbral de 128 MB de uso de memoria en múltiples ocasiones.
           </p>
           <img id="profile_photo" width="590vw" src="./images/Performace9.png" alt="">
@@ -162,7 +162,7 @@
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Nuevo capítulo</h2>
           <p class="about-me">
-            Al cambiar de capítulo, ocurre lo mismo que cuando se abre un nuevo capítulo, pues se descargan las 
+            Al cambiar de capítulo, ocurre lo mismo que cuando se abre un nuevo capítulo, pues se descargan las
             primeras imágenes al mismo tiempo.
           </p>
           <img id="profile_photo" width="590vw" src="./images/Performace10.png" alt="">
@@ -172,7 +172,7 @@
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Cambio de color de páginas</h2>
           <p class="about-me">
-            En este caso, el uso de CPU se mantiene mientras se varía el color de las páginas. Mientras tanto, el uso 
+            En este caso, el uso de CPU se mantiene mientras se varía el color de las páginas. Mientras tanto, el uso
             de memoria es bastante irregular.
           </p>
           <img id="profile_photo" width="590vw" src="./images/Performace11.png" alt="">
@@ -182,7 +182,7 @@
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Lista de capítulos (scroll)</h2>
           <p class="about-me">
-            Al realizar scroll en la lista de capítulos de un manga, se presenta un aumento constante en el uso de 
+            Al realizar scroll en la lista de capítulos de un manga, se presenta un aumento constante en el uso de
             memoria, finalizando con un evento de GC y un pico en el uso de CPU de más del 60%.
           </p>
           <img id="profile_photo" width="590vw" src="./images/Performace12.png" alt="">
@@ -192,8 +192,8 @@
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Descarga de capítulos</h2>
           <p class="about-me">
-            Al descargar varios capítulos, el uso de red es constante la mayoría del tiempo, tal como se esperaba. 
-            En este caso, el uso de CPU se mantiene bastante bajo, mientras que el uso de memoria es constante. 
+            Al descargar varios capítulos, el uso de red es constante la mayoría del tiempo, tal como se esperaba.
+            En este caso, el uso de CPU se mantiene bastante bajo, mientras que el uso de memoria es constante.
           </p>
           <img id="profile_photo" width="590vw" src="./images/Performace13.png" alt="">
         </div>
@@ -211,9 +211,9 @@
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Volver a la app</h2>
           <p class="about-me">
-            Antes de volver a la app, se reanuda la descarga de capítulos, por lo que se presenta uso de red y CPU. 
-            Al cambiar la app a primer plano, aumenta ligeramente el uso de memoria. Además de esto, se observa que 
-            el uso de memoria luego de volver a la app es ligeramente menor al uso antes de volver al home, por lo 
+            Antes de volver a la app, se reanuda la descarga de capítulos, por lo que se presenta uso de red y CPU.
+            Al cambiar la app a primer plano, aumenta ligeramente el uso de memoria. Además de esto, se observa que
+            el uso de memoria luego de volver a la app es ligeramente menor al uso antes de volver al home, por lo
             que es posible que haya un memory leak.
           </p>
           <img id="profile_photo" width="590vw" src="./images/Performace15.png" alt="">
@@ -223,8 +223,8 @@
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Visualizador de capítulos (Entrar y salir rápidamente)</h2>
           <p class="about-me">
-            Al realizar esta acción, el uso de memoria aumenta cada vez que se empieza a visualizar un capítulo, y se 
-            lanza un evento de GC al salir del visualizador. Pese a que se lancen varios eventos de GC, estos solo 
+            Al realizar esta acción, el uso de memoria aumenta cada vez que se empieza a visualizar un capítulo, y se
+            lanza un evento de GC al salir del visualizador. Pese a que se lancen varios eventos de GC, estos solo
             se lanzan al volver al listado de capítulos, por lo que no se presenta GUI Lagging.
           </p>
           <img id="profile_photo" width="590vw" src="./images/Performace16.png" alt="">
@@ -235,8 +235,8 @@
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Extensiones</h2>
           <p class="about-me">
-            En la actividad de la lista de extensiones disponibles, al realizar scroll en esta vista, se presenta 
-            un uso de CPU bastante elevado, alcanzando casi un 60% de uso. Adicionalmente, el uso de memoria aumenta 
+            En la actividad de la lista de extensiones disponibles, al realizar scroll en esta vista, se presenta
+            un uso de CPU bastante elevado, alcanzando casi un 60% de uso. Adicionalmente, el uso de memoria aumenta
             ligeramente.
           </p>
           <img id="profile_photo" width="590vw" src="./images/Performace18.png" alt="">
@@ -246,7 +246,7 @@
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Instalación de extensiones</h2>
           <p class="about-me">
-            Al instalar una extensión, se lanza una actividad que no es de la aplicación, por lo que ésta pasa a 
+            Al instalar una extensión, se lanza una actividad que no es de la aplicación, por lo que ésta pasa a
             estar en segundo plano, disminuyendo su uso de memoria.
           </p>
           <img id="profile_photo" width="590vw" src="./images/Performace19.png" alt="">
@@ -256,7 +256,7 @@
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Zoom in/out</h2>
           <p class="about-me">
-            Se realizó Zoom in/out rápidamente en una página mientras es visualizada en el lector. El uso de CPU es 
+            Se realizó Zoom in/out rápidamente en una página mientras es visualizada en el lector. El uso de CPU es
             bastante reducido, por lo que el manejo de estas operaciones es eficiente.
           </p>
           <img id="profile_photo" width="590vw" src="./images/Performace20.png" alt="">
@@ -266,7 +266,7 @@
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Rotación de pantalla</h2>
           <p class="about-me">
-            Al rotar la pantalla múltiples veces, el uso de memoria disminuye momentáneamente para luego volver a 
+            Al rotar la pantalla múltiples veces, el uso de memoria disminuye momentáneamente para luego volver a
             aumentar cada vez que hay una rotación. El estado de la aplicación se mantiene gracias al uso de Nucleus.
           </p>
           <img id="profile_photo" width="590vw" src="./images/Performace21.png" alt="">
@@ -276,7 +276,7 @@
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Open in browser</h2>
           <p class="about-me">
-            Esta acción lanza una Actividad de otra aplicación, por lo que el uso de memoria de la aplicación 
+            Esta acción lanza una Actividad de otra aplicación, por lo que el uso de memoria de la aplicación
             disminuye considerablemente al pasar a segundo plano.
           </p>
           <img id="profile_photo" width="590vw" src="./images/Performace23.png" alt="">
@@ -286,23 +286,46 @@
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Open web view</h2>
           <p class="about-me">
-            Aunque esta funcionalidad es muy similar a la anterior, tienen una diferencia fundamental: esta vez no 
-            se lanza una Actividad de otra aplicación, por lo que la aplicación sigue en segundo plano. El uso de 
-            CPU es bastante elevado, llegando a más del 65%, debido al renderizado de los componentes web de la 
-            vista. el uso de memoria aumenta hasta cerca de 100 MB. Es difícil saber cuál de las dos funcionalidades 
+            Aunque esta funcionalidad es muy similar a la anterior, tienen una diferencia fundamental: esta vez no
+            se lanza una Actividad de otra aplicación, por lo que la aplicación sigue en segundo plano. El uso de
+            CPU es bastante elevado, llegando a más del 65%, debido al renderizado de los componentes web de la
+            vista. el uso de memoria aumenta hasta cerca de 100 MB. Es difícil saber cuál de las dos funcionalidades
             es la más adecuada, pues no se puede monitorear el uso de recursos de otras aplicaciones tan fácilmente.
           </p>
           <img id="profile_photo" width="590vw" src="./images/Performace24.png" alt="">
         </div>
       </div>
+      <div class="row projects">
+        <h2 class="about-me">Uso de multithreading</h2>
+        <p class="about-me"> Como fue mostrado en la sección de Arquitectura y en la sección de Features, el uso de
+          varios hilos de ejecución se sustenta en la realización de varias tareas en segundo plano, como la descarga
+          simultánea de varios capítulos de manga. De igual manera, también se ve representado en la descarga en segundo
+          plano de los capítulos subsecuentes de un manga, mientras que el usuario va consumiendo simultáneamente (a un
+          ritmo más lento por supuesto) cada capítulo que ya fue completamente descargado. Sin embargo ¿Cómo se ve en
+          líneas específicas y ejemplarizantes dicho comportamiento? El uso de multithreading dentro de Tachiyomi se
+          basa en el uso de la líbrerías Nucleus y ReactiveX y con el fin de clarificar por completo este
+          funcionamiento, vamos a explicarlo mediante uno de los ejemplos mencionados anteriormente: la descarga de
+          capítulos de un manga específico. De esa manera, estando Tachiyomi basada en el patrón arquitectural MVP, se
+          comienza por una interacción Usuario-Vista, aunque en esta situación se trata de una interacción
+          Usuario-Controlador, siendo el controlador un Wrapper de la vista. Así, se tiene la petición por parte de un
+          usuario de descargar un manga y dicha petición converge al siguiente fragmento de código:</p>
+        <!--Script -->
+        <p>Como se puede ver en el fragmento, dicha invocación del método de descargas hace a su vez una invocación al
+        presentador de dicho componente de descargas en la línea [] (cumpliendo con las especificidad del patrón
+        arquitectónico):</p>
+        <!--Script-->
+        <p>Finalmente, dicho proceso se lleva a una de las clases Singleton que sirve con el fin de tratar las descargas
+        (tareas de alto rendimiento) de una manera conjunta y organizada, dando la posibilidad de incluso encolar peticiones de
+        descargas y manejarlas de manera simplificada.</p>
+      </div>
     </main>
     <footer class="mastfoot mt-auto">
       <div class="inner row">
         <div class="col-sm">
-          <p>Contact me! <a href="mailto:juferamos@outlook.com"><img title="Send an email" class="email"
-                height="13rem" width="17rem" src="./images/email.png" alt="Email link"></a><a
-              href="https://github.com/mobileDevReport/" target="_blank"><img title="Organization Github page" class="email"
-                height="17rem" width="17rem" src="./images/github.png" alt="github link"></a></p>
+          <p>Contact me! <a href="mailto:juferamos@outlook.com"><img title="Send an email" class="email" height="13rem"
+                width="17rem" src="./images/email.png" alt="Email link"></a><a
+              href="https://github.com/mobileDevReport/" target="_blank"><img title="Organization Github page"
+                class="email" height="17rem" width="17rem" src="./images/github.png" alt="github link"></a></p>
         </div>
         <div class="col-sm">
           <p id="despedida">A digito cognoscitur leo</p>
