@@ -22,12 +22,11 @@
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
   <title>Reporte de Tachiyomi</title>
   <style>
-
     .mySlides {
       display: none
     }
 
-    .mySlides>img{
+    .mySlides>img {
       margin: auto;
       display: block;
     }
@@ -201,8 +200,10 @@
           </div>
           <div class="music7" data-aos="fade-up">
             <h1 class="about-me music">Como se ve en el código?</h1>
-            <p class="about-me">En el siguiente fragmento de código se ve el uso de Nucleus que, junto que con ReactiveX y Glide, garantizan que suceda </p>
-            <script src="https://gist.github.com/jframos29/fda7e8ac3b90f01e077d96b088022b9b.js"></script>
+            <p class="about-me">En el siguiente fragmento de código se ve el uso de Nucleus (a la hora de manejar los
+              posibles eventos de error) que, junto que con ReactiveX (con uso de los Schedulers y los Observers),
+              garantizan que suceda la correcta obtención de información una vez hay conexión a internet</p>
+            <script src="https://gist.github.com/jframos29/40647dad50c46ba5ccd1959ec4fefff1.js"></script>
           </div>
         </div>
         <div class="row projects">
@@ -219,8 +220,10 @@
           </div>
           <div class="music7" data-aos="fade-up">
             <h1 class="about-me music">Como se ve en el código?</h1>
-            <p class="about-me">En el siguiente fragmento de código se ve la línea exacta en la que</p>
-            <script src="https://gist.github.com/jframos29/fda7e8ac3b90f01e077d96b088022b9b.js"></script>
+            <p class="about-me">En el siguiente fragmento de código se ve como, de manera similar al caso anterior, la
+              informaciíon de los capítulos es obtenida mediante la combinación de manejo de estados de Nucleus con la
+              realización asíncrona de tareas de ReactiveX</p>
+            <script src="https://gist.github.com/jframos29/f81928f958198217d95947f2664583cc.js"></script>
           </div>
         </div>
         <div class="row projects">
@@ -238,17 +241,24 @@
           </div>
           <div class="music7" data-aos="fade-up">
             <h1 class="about-me music">Como se ve en el código?</h1>
-            <p class="about-me">En el siguiente fragmento de código se ve la línea exacta en la que</p>
-            <script src="https://gist.github.com/jframos29/fda7e8ac3b90f01e077d96b088022b9b.js"></script>
+            <p class="about-me">En el siguiente fragmento de código se ve la línea exacta del gist (36) en la que se
+              utiliza el main thread como hilo sobre el cual observar el proceso. De esta forma, el proceso se vuelve
+              robusto frente a cambios y errores mediante el manejo de los diferentes estados (se puede ver como se
+              manejan errores incluso inducidos en la línea 32 del gist) además de ser completamente claro para el
+              usuario.</p>
+            <script src="https://gist.github.com/jframos29/e614cfa8a2823abcbbd1ad329c7b8a8b.js"></script>
           </div>
         </div>
         <h2>Caching</h2>
         <p>De igual forma, es de resaltar el uso de caching como estrategia para mantener un nivel de servicio a pesar
           de las fallas de red (mejora en la resiliencia como atributo de calidad). Este uso se ve representado en el
           caché para capítulos de manga descargados o para aquellas descargas que no se han completado, además del uso
-          de Glide para realizar caché sobre las portadas de los cómics que están siendo utilizados. Cabe aclarar que
-          este algunos de estos ejemplos de caching tienen una vigencia temporal como se ve en el siguiente ejemplo
-          obtenido de DownloadCache.kt
+          de Glide (que se verá en el aparte de librerías) para realizar caché sobre las portadas de los cómics que
+          están siendo utilizados. Cabe aclarar que algunos de estos ejemplos de caching tienen una vigencia temporal
+          como se ve en el siguiente ejemplo
+          obtenido de DownloadCache.kt (línea 23 del gist). Con esto se tiene en cuenta la capacidad de renovar la
+          información y mantenerla actualizada el tiempo lo suficimiente prudente como para no degradar mucho la
+          experiencia de usuario.
           [tachiyomi-0.8.4/app/src/main/java/eu/kanade/tachiyomi/data/download/DownloadCache.kt] </p>
         <script src="https://gist.github.com/jframos29/ef57994db123baa7bfdc7f3c8fd772ad.js"></script>
       </div>
@@ -279,13 +289,14 @@
           </div>
           <div class="music7" data-aos="fade-up">
             <h1 class="about-me music">Como se ve en el código?</h1>
-            <p class="about-me">En el siguiente fragmento de código se ve la línea exacta en la que</p>
+            <p class="about-me">En el siguiente fragmento de código se ve </p>
             <script src="https://gist.github.com/jframos29/fda7e8ac3b90f01e077d96b088022b9b.js"></script>
           </div>
           <div class="music" data-aos="fade-up">
             <h1 class="about-me music">Solución</h1>
             <p class="about-me">La forma de solucionar este error es generar un mensaje mucho más comprensible para el
-              usuario</p>
+              usuario, de tal manera que sea visible y llame su atención de una manera discreta pero prolongada. Así el
+              usuario reconoce el problema de conectividad en el que se encuentra.</p>
             <script src="https://gist.github.com/jframos29/9329adb91eb3a1b05edb099345482481.js"></script>
           </div>
         </div>
@@ -454,7 +465,10 @@
       </div>
       <div>
         <h1 class="about-me music">Issues and Pull Request</h1>
-        <p>Gracias a las correcciones aquí dadas sobre conectividad eventual, fue posible realizar un pull request sobre el repositorio de Tachiyomi. Inicialmente se planteó un issue </p>
+        <p>Gracias a las correcciones aquí dadas sobre conectividad eventual, fue posible realizar un pull request sobre
+          el repositorio de Tachiyomi. Inicialmente se planteó un issue y su respectivo pull request solucionando los
+          problemas aqui encontrados de conectividad eventual. Dicho pull request se puede encontrar en
+          https://github.com/inorichi/tachiyomi/pull/2346 </p>
       </div>
       <div data-aos="fade-up">
         <h1 class="about-me music"> Galería con corrección de errores de Conectividad Eventual</h1>
