@@ -298,27 +298,64 @@
         </div>
       </div>
       <div class="row projects">
-        <h2 class="about-me">Uso de multithreading</h2>
-        <p class="about-me"> Como fue mostrado en la sección de Arquitectura y en la sección de Features, el uso de
-          varios hilos de ejecución se sustenta en la realización de varias tareas en segundo plano, como la descarga
-          simultánea de varios capítulos de manga. De igual manera, también se ve representado en la descarga en segundo
-          plano de los capítulos subsecuentes de un manga, mientras que el usuario va consumiendo simultáneamente (a un
-          ritmo más lento por supuesto) cada capítulo que ya fue completamente descargado. Sin embargo ¿Cómo se ve en
-          líneas específicas y ejemplarizantes dicho comportamiento? El uso de multithreading dentro de Tachiyomi se
-          basa en el uso de la líbrerías Nucleus y ReactiveX y con el fin de clarificar por completo este
-          funcionamiento, vamos a explicarlo mediante uno de los ejemplos mencionados anteriormente: la descarga de
-          capítulos de un manga específico. De esa manera, estando Tachiyomi basada en el patrón arquitectural MVP, se
-          comienza por una interacción Usuario-Vista, aunque en esta situación se trata de una interacción
-          Usuario-Controlador, siendo el controlador un Wrapper de la vista. Así, se tiene la petición por parte de un
-          usuario de descargar un manga y dicha petición converge al siguiente fragmento de código:</p>
-        <!--Script -->
-        <p>Como se puede ver en el fragmento, dicha invocación del método de descargas hace a su vez una invocación al
-        presentador de dicho componente de descargas en la línea [] (cumpliendo con las especificidad del patrón
-        arquitectónico):</p>
-        <!--Script-->
-        <p>Finalmente, dicho proceso se lleva a una de las clases Singleton que sirve con el fin de tratar las descargas
-        (tareas de alto rendimiento) de una manera conjunta y organizada, dando la posibilidad de incluso encolar peticiones de
-        descargas y manejarlas de manera simplificada.</p>
+        <div>
+          <h2 class="about-me">Uso de multithreading</h2>
+          <p class="about-me"> Como fue mostrado en la sección de Arquitectura y en la sección de Features, el uso de
+            varios hilos de ejecución se sustenta en la realización de varias tareas en segundo plano, como la descarga
+            simultánea de varios capítulos de manga. De igual manera, también se ve representado en la descarga en
+            segundo
+            plano de los capítulos subsecuentes de un manga, mientras que el usuario va consumiendo simultáneamente (a
+            un
+            ritmo más lento por supuesto) cada capítulo que ya fue completamente descargado. Sin embargo ¿Cómo se ve en
+            líneas específicas y ejemplarizantes dicho comportamiento? El uso de multithreading dentro de Tachiyomi se
+            basa en el uso de la líbrerías Nucleus y ReactiveX y con el fin de clarificar por completo este
+            funcionamiento, vamos a explicarlo mediante uno de los ejemplos mencionados anteriormente: la descarga de
+            capítulos de un manga específico. De esa manera, estando Tachiyomi basada en el patrón arquitectural MVP, se
+            comienza por una interacción Usuario-Vista, aunque en esta situación se trata de una interacción
+            Usuario-Controlador, siendo el controlador un Wrapper de la vista. Así, se tiene la petición por parte de un
+            usuario de descargar un manga y dicha petición converge al siguiente fragmento de código:</p>
+            <script src="https://gist.github.com/jframos29/b4ad893c963c95b83046d258b93259c3.js"></script>
+          <p>Como se puede ver en el fragmento, dicha invocación del método de descargas hace a su vez una invocación al
+            presentador de dicho componente de descargas en la línea 4 del gist (cumpliendo con las especificidad del patrón
+            arquitectónico):</p>
+            <script src="https://gist.github.com/jframos29/27efe944ab72949057346dc5918d9934.js"></script>
+          <p>Finalmente, dicho proceso se lleva a una de las clases Singleton que sirve con el fin de tratar las
+            descargas
+            (tareas de alto rendimiento) de una manera conjunta y organizada, dando la posibilidad de incluso encolar
+            peticiones de
+            descargas y manejarlas de manera simplificada. Siendo así, se hace uso del DownloadManager:</p>
+            <script src="https://gist.github.com/jframos29/d488535132690209865eb0fdd28981a6.js"></script>
+          <p> Como se ve, el DownloadManager se apoya en la clase Downloader, que se encarga exclusivamente de descargar
+            capítulos de mangas, al encolar toda petición en él. De aquí en adelante, el juego de los múltiples hilos de
+            ejecución toma cada vez más peso.</p>
+            <script src="https://gist.github.com/jframos29/a8a1a101dd20400c8ee7a8587239ff9d.js"></script>
+          <p>Ahora bien, la asincronía manejada por la librería de ReactiveX se reduce a generar procesos
+            Observables,
+            escuchar dichos procesos y responderle a quienes escuchaban a un evento específico de dichos procesos de
+            la consecución de dicho evento. De esa manera, si no solo se generan varios procesos sino que los
+            escuchas
+            de los eventos de ese proceso son múltiples, la asincronía y el manejo de hilos varios de ejecución
+            empieza a dar réditos. En el caso particular de las descargas encoladas, dichos procesos son la ejecución de
+            las descargas encoladas (es decir, la adquisición de los archivos) y los eventos a manejar son su pausa, su
+            correcta ejecución, su cancelación o la aparición de un error inesperado. De esta manera, siendo la única
+            forma de pausar o terminar el proceso la petición de un usuario de hacerlo explicitamente, tendremos los
+            siguientes manejos:</p>
+            <script src="https://gist.github.com/jframos29/68d6440af60c677b5a2321588a9552b1.js"></script>
+          <p>De igual manera, las suscripciones se realizan como se muestra a continuación, resaltando que durante
+            dichas suscripciones, en el Downloader, se observa la ejecución de Schedulers, que no son más que unidades
+            que asignan hilos de ejecución a tareas específicas (Aquí es donde se ve explicitamente el uso de múltiples
+            hilos de ejecución)</p>
+            <script src="https://gist.github.com/jframos29/b716bc9b4f497e85f34ee0dfc596b032.js"></script>
+          <p>Finalmente, aqui cabe resaltar que la ventaja consiste en la realización de múltiples procesos observables,
+            pues es
+            justo en el momento de la ejecución de un evento significativo para el suscriptor que éste se hará cargo de
+            los resultados obtenidos. Mientras tanto, dicho suscriptor puede realizar otras tareas y ahí está el poder
+            asíncrono de ReactiveX. Ahora bien, junto con Nucleus, la ventaja consiste en realizar tareas asíncronas con
+            varios hilos de ejecución de tal manera que el funcionamiento del patrón MVP no se vea afectado y la
+            interfaz gráfica se adecue al funcionamiento asíncrono. Por eso, los obsrvadores están presentes en el
+            Presentador para manejar correctamente la vista como se muestra a continuación:</p>
+            <script src="https://gist.github.com/jframos29/329948a9bf2c5ee6aa260183667e7f59.js"></script>
+        </div>
         <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
           <h2 class="about-me">Memory Leaks</h2>
           <p class="about-me">
