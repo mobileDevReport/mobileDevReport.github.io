@@ -291,16 +291,16 @@
             <h1 class="about-me music">Como se ve en el código?</h1>
             <p class="about-me">En el siguiente fragmento de código se ve la línea que ejecuta un toast con un mensaje
               de error. Dicho mensaje es completamente inexpresivo</p>
-            <script src="https://gist.github.com/jframos29/fda7e8ac3b90f01e077d96b088022b9b.js"></script>
+            <script src="https://gist.github.com/jframos29/6d9ef7ac6501fc0baeaecbcf750d49a8.js"></script>
           </div>
           <div class="music" data-aos="fade-up">
             <h1 class="about-me music">Solución</h1>
-            <p class="about-me">La forma de solucionar este error es generar un mensaje mucho más comprensible para el
+            <p class="about-me"> La forma de solucionar este error es generar un mensaje mucho más comprensible para el
               usuario, de tal manera que sea visible y llame su atención de una manera discreta pero prolongada. Así el
               usuario reconoce el problema de conectividad en el que se encuentra. Por esa razón se escogió solucionar
               el error con el uso de un snackbar. Sin embargo, debido a restricciones en cuanto el uso de Intents, se
-              redescubrió el buen uso de un Toast con un mensaje lo suficientemente diciente</p>
-            <script src="https://gist.github.com/jframos29/9329adb91eb3a1b05edb099345482481.js"></script>
+              redescubrió el buen uso de un Toast con un mensaje lo suficientemente diciente.</p>
+            <script src="https://gist.github.com/jframos29/7e6203c14be18a54f50e8739b6329805.js"></script>
           </div>
         </div>
         <div class="row projects">
@@ -324,7 +324,8 @@
           </div>
           <div class="music" data-aos="fade-up">
             <h1 class="about-me music">Solución</h1>
-            <p class="about-me">La forma de solucionar este error es generar un mensaje mucho más comprensible para el
+            <p class="about-me">
+              La forma de solucionar este error es generar un mensaje mucho más comprensible para el
               usuario, como se ha hecho anteriormente. De esa forma, se creó un string constante que resume, de manera
               natural, la causa de la excepción. De igual manera, se decidió expresar esa información en un snackbar de
               tiempo indefinidio para hacer saber al usuario la situación.</p>
@@ -345,15 +346,17 @@
           </div>
           <div class="music7" data-aos="fade-up">
             <h1 class="about-me music">Como se ve en el código?</h1>
-            <p class="about-me">En el siguiente fragmento de código se ve la línea que ejecuta un toast con un mensaje
-              de error como parametro de comunicación con el usuario. Dicho mensaje es completamente inexpresivo</p>
-            <script src="https://gist.github.com/jframos29/fda7e8ac3b90f01e077d96b088022b9b.js"></script>
+            <p class="about-me">En el siguiente fragmento de código se ve la ejecución de una animación y la apertura de
+              un reader aún cuando puede que el recurso no esté disponible por no haber conexión estable a internet</p>
+            <script src="https://gist.github.com/jframos29/7ec337bac43196189adcbfc23a5d63fc.js"></script>
           </div>
           <div class="music" data-aos="fade-up">
             <h1 class="about-me music">Solución</h1>
             <p class="about-me">La forma de solucionar este error es generar un mensaje mucho más comprensible para el
-              usuario y que llame su atención sin ser invasivo. De ahí, la idea fue utilizar snackbars</p>
-            <script src="https://gist.github.com/jframos29/9329adb91eb3a1b05edb099345482481.js"></script>
+              usuario y que llame su atención sin ser invasivo. De ahí, la idea fue utilizar snackbars. Se recurrió a un
+              Network manager propio de la clase y a la propiedad isDownloaded para vigilar que el recurso a pedir sí
+              esté disponible, bien localmente o desde su fuente de recurso </p>
+            <script src="https://gist.github.com/jframos29/86b59f4ef48cd7527720f0d05a7064d0.js"></script>
           </div>
         </div>
         <div class="row projects">
@@ -373,17 +376,18 @@
           </div>
           <div class="music7" data-aos="fade-up">
             <h1 class="about-me music">Como se ve en el código?</h1>
-            <p class="about-me">En el siguiente fragmento de código se ve la línea exacta en la que se ejecuta el toast
-              con el mensaje que se obtenía al momento de llamar la excepción relacionada</p>
-            <script src="https://gist.github.com/jframos29/fda7e8ac3b90f01e077d96b088022b9b.js"></script>
+            <p class="about-me">En el siguiente fragmento de código se ejecuta el reader sin saber si el recurso sobre
+              el cual se ejecuta está disponible.</p>
+            <script src="https://gist.github.com/jframos29/4d3649acba4f2a8777a58f94a3689ff4.js"></script>
           </div>
           <div class="music" data-aos="fade-up">
             <h1 class="about-me music">Solución</h1>
             <p class="about-me">La forma de solucionar este error es generar un mensaje mucho más comprensible para el
               usuario dentro de, por ejemplo, un snackbar. Aunque el mensaje fue correctamente diseñado, el manejo de
               intents
-              en esta ocasión facilita el uso de Toast (usados correctamente con el mensaje descriptivo) </p>
-            <script src="https://gist.github.com/jframos29/9329adb91eb3a1b05edb099345482481.js"></script>
+              en esta ocasión facilita el uso de Toast dentro del manejo del reader mismo (usados correctamente con el
+              mensaje descriptivo) </p>
+            <script src="https://gist.github.com/jframos29/7e6203c14be18a54f50e8739b6329805.js"></script>
           </div>
         </div>
         <h3>Inconsistent Messages</h3>
@@ -406,13 +410,15 @@
             <h1 class="about-me music">Como se ve en el código?</h1>
             <p class="about-me">En el siguiente fragmento de código se ve la línea exacta en la que el mensaje, sin
               importar el contexto, es el mismo</p>
-            <script src="https://gist.github.com/jframos29/fda7e8ac3b90f01e077d96b088022b9b.js"></script>
+            <script src="https://gist.github.com/jframos29/f53a140f514bb7f1157a17728e8e49df.js"></script>
           </div>
           <div class="music" data-aos="fade-up">
             <h1 class="about-me music">Solución</h1>
             <p class="about-me">La forma de solucionar este error es generar un mensaje mucho más comprensible para el
-              usuario, que le informe de los eventos relacionados con su conexión a internet</p>
-            <script src="https://gist.github.com/jframos29/9329adb91eb3a1b05edb099345482481.js"></script>
+              usuario, que le informe de los eventos relacionados con su conexión a internet. Para eso, se recurrió al
+              controlador, en vez de directamente la vista y se utilizó un NetworkConnectivityManager para vigilar el
+              estado de la conexión a Internet</p>
+            <script src="https://gist.github.com/jframos29/b43525e474f1168bed27710952c7a38d.js"></script>
           </div>
         </div>
         <h2>Lost content</h2>
@@ -437,11 +443,11 @@
           <div class="music7" data-aos="fade-up">
             <h1 class="about-me music">Como se ve en el código?</h1>
             <p class="about-me">Dado el manejo de errores y la imposibilidad de obtener la información puesto que las
-              imagenes rotas no quedaron almacenadas en caché, tenemos que este problema no tiene una solución propuesta
+              imagenes rotas no quedaron almacenadas en caché (usando Glide), tenemos que este problema no tiene una solución propuesta
               de la manera en la que se están proponiendo las demás soluciones. De ahí, el aparte de soluciones, al ser
               imposible obtener la información, ha sido retirado. En cuanto al problema, basta con revisar el código
-              relacionado con la imgen dentro del catálogo de mangas.</p>
-            <script src="https://gist.github.com/jframos29/fda7e8ac3b90f01e077d96b088022b9b.js"></script>
+              relacionado con la imagen dentro del catálogo de mangas.</p>
+              <script src="https://gist.github.com/jframos29/109004cba5d8edfd794a159a563629e7.js"></script>
           </div>
         </div>
         <h3>Lost pages</h3>
@@ -464,14 +470,14 @@
             <h1 class="about-me music">Como se ve en el código?</h1>
             <p class="about-me">En el siguiente fragmento de código se ve la línea exacta en la que se define el botón
               que solo tiene la palabra retry</p>
-            <script src="https://gist.github.com/jframos29/fda7e8ac3b90f01e077d96b088022b9b.js"></script>
+              <script src="https://gist.github.com/jframos29/f2a3e6fe1f2465baea47ac1b786f9035.js"></script>
           </div>
           <div class="music" data-aos="fade-up">
             <h1 class="about-me music">Solución</h1>
             <p class="about-me">La forma de solucionar este error es generar un mensaje mucho más comprensible para el
               usuario y mucho más ameno e informativo. Por esa razón se agregó un pequeño aparte de texto que da
               información sobre el error de conectividad por el cual está pasando el usuario</p>
-            <script src="https://gist.github.com/jframos29/9329adb91eb3a1b05edb099345482481.js"></script>
+              <script src="https://gist.github.com/jframos29/4f8f65f70e0a00363fc17219dc538b60.js"></script>
           </div>
         </div>
       </div>
@@ -479,8 +485,10 @@
         <h1 class="about-me music">Issues and Pull Request</h1>
         <p>Gracias a las correcciones aquí dadas sobre conectividad eventual, fue posible realizar un pull request sobre
           el repositorio de Tachiyomi. Inicialmente se planteó un issue y su respectivo pull request solucionando los
-          problemas aqui encontrados de conectividad eventual. Dicho pull request (que contiene la información del issue) se puede encontrar en
-          <a href="https://github.com/inorichi/tachiyomi/pull/2346">https://github.com/inorichi/tachiyomi/pull/2346</a> </p>
+          problemas aqui encontrados de conectividad eventual. Dicho pull request (que contiene la información del
+          issue) se puede encontrar en
+          <a href="https://github.com/inorichi/tachiyomi/pull/2346">https://github.com/inorichi/tachiyomi/pull/2346</a>
+        </p>
       </div>
       <div data-aos="fade-up">
         <h1 class="about-me music"> Galería con corrección de errores de Conectividad Eventual</h1>
