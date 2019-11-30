@@ -45,7 +45,6 @@
         </nav>
       </div>
     </header>
-
     <main class="inner cover2">
       <div class="welcome">
         <h1 class="cover-heading">Librerías</h1>
@@ -60,16 +59,34 @@
       </div>
       <div class="row projects">
         <div class="col-sm container-fluid" data-aos="fade-left">
+          <h1 class="about-me">OkHttp y Okio</h1>
+          <p class="about-me">
+            OkHttp es una librería para manejo de peticiones HTTP. Esta librería tiene dependencia con Okio, la cual 
+            es usada para un manejo eficiente de operaciones I/O. Un ejemplo del uso de estas librería en la aplicación 
+            es el siguiente. En el archivo Requests, se define la estructura de las peticiones que serán utilizadas 
+            en la aplicación. Por otro lado, en la clase ProgressResponseBody se usa Okio para manejar la lectura de 
+            un recurso, con información sobre el progreso de la operación.
+          </p>
+          <p class="about-me">
+            <script src="https://gist.github.com/SeCardenas/b8b416d8d97e5b0d7bdf2021c4d3c6b7.js"></script>
+          </p>
+          <p class="about-me">
+            <script src="https://gist.github.com/SeCardenas/4bdb757ad80b6b2a7eff7a47f9bec12d.js"></script>
+          </p>
+        </div>
+      </div>
+      <div class="row projects">
+        <div class="col-sm container-fluid" data-aos="fade-left">
           <h1 class="about-me">SQLite con StorIO</h1>
           <p class="about-me">
-              StorIO es un API que busca reemplazar el uso de las APIs SQLiteDatabase y ContentResolver, integrando 
-              las funcionalidades de ambas APIs de una manera más sencilla para el desarrollador. En el proyecto de 
-              Tachiyomi, se hace uso de StorIOSQLite para manejar su base de datos interna, junto con Rx, el cual 
-              observa los cambios realizados a la base de datos para actualizar el estado de la aplicación. Un 
-              ejemplo del uso de StorIO se puede observar en las interfaces del directorio data/database/queries. En
-              dichas interfaces, se hace uso de la propiedad heredada de DbProvider: db, el cual es de tipo 
-              DefaultStorIOSQLite para crear, construir y preparar las queries para las distintas operaciones sobre 
-              los modelos de la aplicación.
+            StorIO es un API que busca reemplazar el uso de las APIs SQLiteDatabase y ContentResolver, integrando 
+            las funcionalidades de ambas APIs de una manera más sencilla para el desarrollador. En el proyecto de 
+            Tachiyomi, se hace uso de StorIOSQLite para manejar su base de datos interna, junto con Rx, el cual 
+            observa los cambios realizados a la base de datos para actualizar el estado de la aplicación. Un 
+            ejemplo del uso de StorIO se puede observar en las interfaces del directorio data/database/queries. En
+            dichas interfaces, se hace uso de la propiedad heredada de DbProvider: db, el cual es de tipo 
+            DefaultStorIOSQLite para crear, construir y preparar las queries para las distintas operaciones sobre 
+            los modelos de la aplicación.
           </p>
           <p class="about-me">
             <script src="https://gist.github.com/SeCardenas/cedd88c56cfb411ed0ae019fdd5ef4d7.js"></script>
@@ -80,140 +97,6 @@
           <p class="about-me">
             En la sección de Almacenamiento se explicará más a fondo el uso de esta librería.
           </p>
-        </div>
-      </div>
-      <div class="row projects">
-        <div class="col-sm container-fluid" data-aos="fade-left">
-            <h1 class="about-me">Observer (Let's talk about ReactiveX a.k.a Rx)</h1>
-            <p class="about-me">
-                Dentro del método registerInjectables() hay una porción de código que maneja la instanciación
-                asincrónica de elementos que se encargan de las tareas de mayor impacto. Puesto que la instanciación,
-                por medio de la Factory correspondiente, puede tomar de igual manera un tiempo considerable, esta
-                misma se realiza de manera asincrónica para que luego le sea asignado un Scheduler encargado de
-                realizar tareas computacionales. En resumen, una vez ejecutado el método get&lt;"Clase"&gt;()
-                (v.gr.get&lt;PreferencesHelper&gt;()) se verifica si la instancia ya está creada o no (en el caso de
-                que la Clase siga el patrón Singleton) y una vez terminada la instanciación (ejecutada de manera
-                asíncrona), se asigna una instanciación de Scheduler con fines computacionales (creada mediante
-                Scheduler.computation()). Para finalizar, dicha asignación de un Scheduler se realiza mediante el
-                uso del patrón Observer. Se utiliza la clase Observable de ReactiveX que está pendiente de la
-                finalización de la instanciación de la Clase, para la creación del Scheduler mencionado. El
-                siguiente fragmento de código muestra el funcionamiento descrito. De igual forma, muestra el esquema
-                para la ejecución de tareas asíncronas, que en el futuro serán realizadas mediante multithreading
-                con ayuda de los Schedulers generados.
-            </p>
-            <p class="about-me">
-                <script src="https://gist.github.com/jframos29/d18f0d77c3c64881f2e73cbb480ba8aa.js"></script>
-            </p>
-        </div>
-      </div>
-      <div class="row projects">
-        <div class="col-sm container-fluid" data-aos="fade-left">
-            <h1 class="about-me">Singleton</h1>
-            <p class="about-me">
-                Como se mencionó anteriormente, el patrón Singleton es un patrón que restringe la instanciación de
-                una clase a un solo objeto. En el caso de Tachiyomi, es usado en manejadores de red (para las
-                conexiones a las extensiones disponibles dentro de la aplicación), manejadores de caché y de bases
-                de datos. Junto con el patrón de inyección de dependencias hace un arreglo muy poderoso de patrones,
-                creando un código mantenible. De manera concreta, el uso del patrón Singleton se ve mediante el uso
-                de Injekt.get&lt;Clase&gt;() (usada dentro de la clase DownloadCache [tachiyomi-0.8.4/app/src/main/java/eu/kanade/tachiyomi/data/download/DownloadCache.kt],
-                línea 30). Si la clase ya está instanciada, se retorna dicha instanciación y si no lo está, se
-                instancia.
-            </p>
-        </div>
-      </div>
-      <div class="row projects">
-          <div class="col-sm container-fluid" data-aos="fade-left">
-              <h1 class="about-me">Factory Method</h1>
-              <p class="about-me">
-                  Como se mencionó anteriormente la inyección de dependencias se basa en el uso del patrón factory
-                  method. En él, la instanciación de una clase depende de sus subclases asociadas y, de esa manera,
-                  en el caso de tachiyomi, hay una clase específica encargada de la creación de instancias (que,
-                  como se vió en la creación del módulo de Injekt en la clase <b>AppModule</b>, se comporta como un
-                  singleton). Esto beneficia el bajo acoplamiento y reduce el mal manejo de instancias, utilizando
-                  el número necesario de instancias para el manejo de tareas del alto impacto como consultas a una
-                  base de datos.
-              </p>
-          </div>
-        </div>
-        <div class="row projects">
-        <div class="col-sm container-fluid" data-aos="fade-left">
-            <h1 class="about-me">MVP (Let's talk about Nucleus)</h1>
-            <p class="about-me">
-                ¿Cómo manejar la actualización de la interfaz gráfica a partir de la realización de tareas que se
-                realizan en segundo plano? De igual forma, ¿Cómo procurar que dichas tareas (y los cambios que
-                generan estas tareas sobre la interfaz) se completen correctamente a pesar de un eventual cambio en
-                el estado de la aplicación dado por una modificación en la configuración o un reinicio? La respuesta
-                a esa pregunta en el caso de Tachiyomi es Nucleus, una librería que, mediante el patrón MVP, permite
-                conectar elementos de la interfaz gráfica con la realización de tareas generalmente costosas (como
-                la descarga de un cómic). Aquí, el presentador está al tanto de las tareas en segundo plano y de los
-                cambios sobre la información que estas puedan generar. Adicionalmente, se tienen control de los
-                fragmentos y actividades puestas sobre la vista y, ante un cambio en la configuración (como una
-                rotación de pantalla o la caída de la conexión a internet), se reinician el fragmento en su último
-                estado y se continúan con los procesos generados en segundo plano, cuando sea posible. De esta
-                forma, Nucleus permite que Tachiyomi se vuelva robusta frente a los eventos de cambios en
-                configuración o reinicios de actividades. Sin embargo, Nucleus ya no está en proceso de desarrollo
-                y el uso de Redux propone una arquitectura mucho más escalable que cualquiera MVxx, por lo que el
-                cambio a una arquitectura de ese estilo convendría en mejor escalabilidad y en la manutención de los
-                beneficios propuestos por Nucleus.
-            </p>
-            <p>
-                En el siguiente código puede verse el funcionamiento de Nucleus a partir de un código base puesto
-                sobre la clase BasePresenter de Tachiyomi. [tachiyomi-0.8.4/app/src/main/java/eu/kanade/tachiyomi/ui/base/presenter/BasePresenter.kt]
-            </p>
-            <p>
-                <script src="https://gist.github.com/jframos29/34f8bae6a77f13269698773caa08a1e3.js"></script>
-            </p>
-            <p>
-                En este pequeño ejemplo vemos como en el código base para los presentadores, los mismos están
-                dispuestos a crear los Observables (clase perteneciente a Nucleus) necesarios para el funcionamiento
-                asincrónico de tareas de tipo I/O, iniciadas dentro de este presentador a partir de una acción del
-                usuario, que se ve representada por el lanzamiento de un método de Controlador de una clase
-                específica. En el siguiente código se puede ver un fragmento de la clase CatalogueController [tachiyomi-0.8.4/app/src/main/java/eu/kanade/tachiyomi/ui/catalogue/CatalogueController.kt]
-                (que no es más que un wrapper de la vista de catálogo de mangas disponibles con un acceso al
-                presentador CataloguePresenter, que hereda de NucleusController, que a su vez hereda del
-                anteriormente mostrado BasePresenter).
-            </p>
-            <p>
-                <script src="https://gist.github.com/jframos29/ad617809be759ec114ad73b1cb860f2c.js"></script>
-            </p>
-            <p>
-                Como se puede observar, el controlador de catalogos hace uso del presentador CataloguePresenter
-                (creado en la línea 76 del archivo CatalogueController.kt y usado concretamente en la línea 116 del
-                mismo) y del adapter CatalogueAdapter (instanciado en la línea 98) cuyo objetivo se explicará en el
-                siguiente aparte. Un detalle a resaltar en el fragmento de código puesto es el uso de Injekt y de la
-                manutención del patrón Singleton a la hora de utilizar la clase PreferencesHelper (línea 46) que se
-                encarga de controlar las preferencias del usuario en cuanto a lenguaje y visualización de los mangas.
-            </p>
-        </div>
-      </div>
-      <div class="row projects">
-        <div class="col-sm container-fluid" data-aos="fade-left">
-            <h1 class="about-me">Adapter</h1>
-            <p class="about-me">
-                Como es común encontrar en Android, Tachiyomi utiliza el patrón Adapter con el fin de construir un
-                puente entre la información contenida en una lista, particularmente la lista de mangas locales o la
-                lista de descargas desde las extensiones, y el RecyclerView encargado de mostrar dicha lista en la
-                Vista.
-            </p>
-            <p>
-                De igual forma, el patrón Adapter puede ser visto en el uso de los interceptores de la librería
-                OkHttp que hace las veces de modificador de una petición dentro de un cliente HTTP (aunque de manera
-                mucho más precisa cumple con el patrón Facade al hacer una adaptación de una petición hecha desde el
-                app a un servidor externo). Dentro de Tachiyomi, dicho Interceptor modifica petición a servidores de
-                Cloudflare y, naturalmente, dicha clase se llama CloudflareInterceptor [tachiyomi-0.8.4/app/src/main/java/eu/kanade/tachiyomi/network/CloudflareInterceptor.kt]
-            </p>
-        </div>
-      </div>
-      <div class="row projects">
-        <div class="col-sm container-fluid" data-aos="fade-left">
-            <p class="about-me">
-                De toda esta forma, cualquier clase que contenga participación sobre la vista sigue un patrón
-                (que contiene un Presenter ya explicado, un Controller, un Adapter y un Modelo) que se ve de una
-                forma similar a como se mostrará el siguiente diagrama de clases (hecho sobre el caso de las
-                Descargas de cómics), que ejemplifica el patrón MVP ya descrito, ejercido con ayuda de Nucleus (en
-                especial su Conductor) y ReactiveX.
-            </p>
-            <img id="profile_photo" width="700vw" src="./images/diagramaDownloads.png" alt="">
         </div>
       </div>
     </main>

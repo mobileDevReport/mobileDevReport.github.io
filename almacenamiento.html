@@ -50,11 +50,27 @@
       <div class="welcome">
         <h1 class="cover-heading">Almacenamiento</h1>
         <p class="lead">
-          El app de Tachiyomi maneja 2 métodos de almacenamiento: almacenamiento local mediante una base de datos 
-          SQLite, y almacenamiento externo utilizado para realizar un backup de la base de datos.
+          El app de Tachiyomi maneja 3 métodos de almacenamiento: Shared Preferences, base de datos 
+          SQLite, y almacenamiento externo utilizado para realizar un backup de la base de datos y para guardar los 
+          capítulos descargados.
         </p>
         <div id="div-chevron" class="row">
           <img id="img-chevron" width="50rem" height="50rem" src="./images/chevron.png" alt="chevron-button">
+        </div>
+      </div>
+      <div class="row projects">
+        <div class="col-sm container-fluid" data-aos="fade-left">
+          <h1 class="about-me">Shared Preferences</h1>
+          <p class="about-me">
+            Tachiyomi usa Shared Preferences para guardar el registro de los capítulos descargados. Las parejas que 
+            se guardan son de la forma &lt;id del capítulo, json serializado de la información del capítulo&gt;. la 
+            información que se guarda del capítulo es el id del capítulo, el id del manga, y un contador que indica 
+            la página en la que el usuario terminó de leer la última vez. En el siguiente fragmento de la clase 
+            DownloadStore se observa claramente el uso de Shared Preferences para este fin:
+          </p>
+          <p>
+            <script src="https://gist.github.com/SeCardenas/83beefe857b0d6b235d3e61c30c087de.js"></script>
+          </p>
         </div>
       </div>
       <div class="row projects">
@@ -83,21 +99,23 @@
           <p>
             <script src="https://gist.github.com/SeCardenas/7ce12969b4af6ab0d27c1e4bff57ef87.js"></script>
           </p>
-          Finalmente, en el directorio data/database/queries/, se definen, crean, construyen y preparan todas las 
-          queries que se van a ejecutar en la aplicación, a través de interfaces que realizan estas operaciones 
-          sobre las sentencias genéricas definidas en el archivo RawQueries. En otrar palabras, el DbProvider crea 
-          y verifica las sentencias del archivo RawQueries con los parámetros dados.
+          <p class="about-me">
+            Finalmente, en el directorio data/database/queries/, se definen, crean, construyen y preparan todas las 
+            queries que se van a ejecutar en la aplicación, a través de interfaces que realizan estas operaciones 
+            sobre las sentencias genéricas definidas en el archivo RawQueries. En otrar palabras, el DbProvider crea 
+            y verifica las sentencias del archivo RawQueries con los parámetros dados.
+          </p>
+          <p>
+            <script src="https://gist.github.com/SeCardenas/cedd88c56cfb411ed0ae019fdd5ef4d7.js"></script>
+          </p>
+          <p>
+            <script src="https://gist.github.com/SeCardenas/4b9e1a7dbd0c891e6cd875a511fcb6c6.js"></script>
+          </p>
         </div>
-        <p>
-          <script src="https://gist.github.com/SeCardenas/cedd88c56cfb411ed0ae019fdd5ef4d7.js"></script>
-        </p>
-        <p>
-          <script src="https://gist.github.com/SeCardenas/4b9e1a7dbd0c891e6cd875a511fcb6c6.js"></script>
-        </p>
       </div>
       <div class="row projects">
         <div class="col-sm container-fluid" data-aos="fade-left">
-            <h1 class="about-me">Almacenamiento externo</h1>
+            <h1 class="about-me">Almacenamiento externo para backup</h1>
             <p class="about-me">
               Como se mencionó anteriormente, el almacenamiento externo es utilizado para guardar un backup de la 
               base de datos local. Este backup es un archivo en formato json, cuya estructura está definida en el 
@@ -156,6 +174,22 @@
             </p>
         </div>
       </div>
+      <div class="row projects">
+          <div class="col-sm container-fluid" data-aos="fade-left">
+            <h1 class="about-me">Almacenamiento externo para descarga de capítulos</h1>
+            <p class="about-me">
+              Otro uso que Tachiyomi le da al almacenamiento externo es la descarga de capítulos para poder leerlos 
+              sin conexión. El siguiente ejemplo muestra el uso de almacenamiento externo para guardar el capítulo 
+              descargado. Sin entrar en detalle en el proceso de descarga (para más información, dirigirse a la 
+              sección de Arquitectura), se observa que antes de descargar el capítulo, es decir, al inicio del método
+              downloadChapter, se crea el directorio donde será almacenado. Por otro lado, en el método downloadImage
+              se crea un archivo por cada imagen descargada, y se guarda la imagen en dicho archivo.
+            </p>
+            <p>
+              <script src="https://gist.github.com/SeCardenas/4bce57e352e5a9476837f595f00aadab.js"></script>
+            </p>
+          </div>
+        </div>
     </main>
     <footer class="mastfoot mt-auto">
       <div class="inner row">
