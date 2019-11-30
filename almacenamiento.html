@@ -50,8 +50,8 @@
       <div class="welcome">
         <h1 class="cover-heading">Almacenamiento</h1>
         <p class="lead">
-          El app de Tachiyomi maneja 2 métodos de almacenamiento: almacenamiento local mediante una base de datos, y 
-          almacenamiento externo utilizado para realizar un backup de la base de datos.
+          El app de Tachiyomi maneja 2 métodos de almacenamiento: almacenamiento local mediante una base de datos 
+          SQLite, y almacenamiento externo utilizado para realizar un backup de la base de datos.
         </p>
         <div id="div-chevron" class="row">
           <img id="img-chevron" width="50rem" height="50rem" src="./images/chevron.png" alt="chevron-button">
@@ -59,19 +59,12 @@
       </div>
       <div class="row projects">
         <div class="col-sm container-fluid" data-aos="fade-left">
-          <h1 class="about-me">Base de datos local</h1>
+          <h1 class="about-me">Base de datos SQLite</h1>
           <p class="about-me">
-              El patrón de inyección de dependencias consiste en separar el proceso de creación de los objetos de los
-              objetos mismos. En cierta medida, este patrón está basado, al menos en este caso, en el uso del patrón
-              Factory Method, que será explicado a posteriori. Esto debido a que, mediante el patrón Factory Method,
-              el proceso de creación de cada uno de los componentes esenciales de Tachiyomi se ve reducido al uso de
-              una clase específica para dicho fin. Ahora bien, de una manera concreta, Tachiyomi hace uso de la
-              librería Injekt con el fin de hacer la inyección de dependencias. En el siguiente fragmento de código
-              (correspondiente a la clase AppModule [tachiyomi-0.8.4/app/src/main/java/eu/kanade/tachiyomi/AppModule.kt]) se puede ver el uso de la librería
-              Injekt y el uso del método fundamental registerInjectables() que será explicado a continuación.
+              .
           </p>
           <p class="about-me">
-              <script src="https://gist.github.com/jframos29/eeaefd68bf71649c802128f6e9ded3d3.js"></script>
+            
           </p>
           <p class="about-me">
               Mediante el método registerInjectables() se introducen todas las dependencias a usar y sus respectivas
