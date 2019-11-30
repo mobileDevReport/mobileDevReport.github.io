@@ -93,6 +93,10 @@ a, a:hover{
   font-weight: 700;
 }
 
+.green>p{
+   -webkit-text-fill-color: green !important
+}
+
 .mastfoot {
   color: rgba(255, 255, 255, .5);
 }
