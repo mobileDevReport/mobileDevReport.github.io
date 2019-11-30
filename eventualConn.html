@@ -21,6 +21,126 @@
   <link rel="icon" href="./images/ic_launcher-web.png" />
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
   <title>Reporte de Tachiyomi</title>
+  <style>
+
+    .mySlides {
+      display: none
+    }
+
+    .mySlides>img{
+      margin: auto;
+      display: block;
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Caption text */
+    .text {
+      color: #f2f2f2;
+      font-size: 15px;
+      padding: 10px 12px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active,
+    .dot:hover {
+      background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+      -webkit-animation-name: fade;
+      -webkit-animation-duration: 1.5s;
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+
+    @-webkit-keyframes fade {
+      from {
+        opacity: .4
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    @keyframes fade {
+      from {
+        opacity: .4
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+
+      .prev,
+      .next,
+      .text {
+        font-size: 11px
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -54,7 +174,7 @@
           alto para resaltar es que durante todas las pruebas realizadas a la aplicación, aunque existe un amplio uso de
           tareas en segundo plano que involucran conexión a internet, no se presentó ningún crash o bloqueo total de la
           aplicación (causando su cierre). Esto debido al correcto uso de la librería Nucleus que mantiene el último
-          estado estado estable de la aplicación a pesar de los cambios en configuración</p>
+          estado estado estable de la aplicación a pesar de los cambios en configuración.</p>
         <div id="div-chevron" class="row">
           <img id="img-chevron" width="50rem" height="50rem" src="./images/chevron.png" alt="chevron-button">
         </div>
@@ -63,7 +183,7 @@
         <h1>Buen manejo de conectividad eventual</h1>
         <p class="about-me"> No toda crítica es negativa y este es un aparte dedicado a resaltar las bondades, dadas en
           términos de conectividad eventual, que existen dentro del app de Tachiyomi. En ellas se demuestra la
-          recuperación del estado de buen funcionamiento de la app una vez la conexión a internet se vuelve a recuperar
+          recuperación del estado de buen funcionamiento de la app una vez la conexión a internet se vuelve a recuperar.
         </p>
         <div class="row projects">
           <div class="col-sm container-fluid" data-aos="fade-left">
@@ -79,6 +199,11 @@
             <iframe width="300" height="315" src="https://www.youtube.com/embed/ALX_iaT_81c" frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
+          <div class="music7" data-aos="fade-up">
+            <h1 class="about-me music">Como se ve en el código?</h1>
+            <p class="about-me">En el siguiente fragmento de código se ve el uso de Nucleus que, junto que con ReactiveX y Glide, garantizan que suceda </p>
+            <script src="https://gist.github.com/jframos29/fda7e8ac3b90f01e077d96b088022b9b.js"></script>
+          </div>
         </div>
         <div class="row projects">
           <div class="col-sm container-fluid" data-aos="fade-left">
@@ -91,6 +216,11 @@
           <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
             <iframe width="300" height="315" src="https://www.youtube.com/embed/Vyb8ESMqWoA" frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="music7" data-aos="fade-up">
+            <h1 class="about-me music">Como se ve en el código?</h1>
+            <p class="about-me">En el siguiente fragmento de código se ve la línea exacta en la que</p>
+            <script src="https://gist.github.com/jframos29/fda7e8ac3b90f01e077d96b088022b9b.js"></script>
           </div>
         </div>
         <div class="row projects">
@@ -105,6 +235,11 @@
           <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
             <iframe width="300" height="315" src="https://www.youtube.com/embed/Xguk71Wgu10" frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="music7" data-aos="fade-up">
+            <h1 class="about-me music">Como se ve en el código?</h1>
+            <p class="about-me">En el siguiente fragmento de código se ve la línea exacta en la que</p>
+            <script src="https://gist.github.com/jframos29/fda7e8ac3b90f01e077d96b088022b9b.js"></script>
           </div>
         </div>
         <h2>Caching</h2>
@@ -142,6 +277,17 @@
             <iframe width="300" height="315" src="https://www.youtube.com/embed/3mj9QR0Wx98" frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
+          <div class="music7" data-aos="fade-up">
+            <h1 class="about-me music">Como se ve en el código?</h1>
+            <p class="about-me">En el siguiente fragmento de código se ve la línea exacta en la que</p>
+            <script src="https://gist.github.com/jframos29/fda7e8ac3b90f01e077d96b088022b9b.js"></script>
+          </div>
+          <div class="music" data-aos="fade-up">
+            <h1 class="about-me music">Solución</h1>
+            <p class="about-me">La forma de solucionar este error es generar un mensaje mucho más comprensible para el
+              usuario</p>
+            <script src="https://gist.github.com/jframos29/9329adb91eb3a1b05edb099345482481.js"></script>
+          </div>
         </div>
         <div class="row projects">
           <div class="col-sm container-fluid" data-aos="fade-left">
@@ -155,6 +301,17 @@
             <iframe width="300" height="315" src="https://www.youtube.com/embed/eEUzagt0S_s" frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
+          <div class="music7" data-aos="fade-up">
+            <h1 class="about-me music">Como se ve en el código?</h1>
+            <p class="about-me">En el siguiente fragmento de código se ve la línea exacta en la que</p>
+            <script src="https://gist.github.com/jframos29/fda7e8ac3b90f01e077d96b088022b9b.js"></script>
+          </div>
+          <div class="music" data-aos="fade-up">
+            <h1 class="about-me music">Solución</h1>
+            <p class="about-me">La forma de solucionar este error es generar un mensaje mucho más comprensible para el
+              usuario</p>
+            <script src="https://gist.github.com/jframos29/9329adb91eb3a1b05edb099345482481.js"></script>
+          </div>
         </div>
         <div class="row projects">
           <div class="col-sm container-fluid" data-aos="fade-left">
@@ -167,6 +324,17 @@
           <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
             <iframe width="300" height="315" src="https://www.youtube.com/embed/jGaVq7RrOcw" frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="music7" data-aos="fade-up">
+            <h1 class="about-me music">Como se ve en el código?</h1>
+            <p class="about-me">En el siguiente fragmento de código se ve la línea exacta en la que</p>
+            <script src="https://gist.github.com/jframos29/fda7e8ac3b90f01e077d96b088022b9b.js"></script>
+          </div>
+          <div class="music" data-aos="fade-up">
+            <h1 class="about-me music">Solución</h1>
+            <p class="about-me">La forma de solucionar este error es generar un mensaje mucho más comprensible para el
+              usuario</p>
+            <script src="https://gist.github.com/jframos29/9329adb91eb3a1b05edb099345482481.js"></script>
           </div>
         </div>
         <div class="row projects">
@@ -184,6 +352,17 @@
             <iframe width="300" height="315" src="https://www.youtube.com/embed/Ehs-YfCL5o4" frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
+          <div class="music7" data-aos="fade-up">
+            <h1 class="about-me music">Como se ve en el código?</h1>
+            <p class="about-me">En el siguiente fragmento de código se ve la línea exacta en la que</p>
+            <script src="https://gist.github.com/jframos29/fda7e8ac3b90f01e077d96b088022b9b.js"></script>
+          </div>
+          <div class="music" data-aos="fade-up">
+            <h1 class="about-me music">Solución</h1>
+            <p class="about-me">La forma de solucionar este error es generar un mensaje mucho más comprensible para el
+              usuario</p>
+            <script src="https://gist.github.com/jframos29/9329adb91eb3a1b05edb099345482481.js"></script>
+          </div>
         </div>
         <h3>Inconsistent Messages</h3>
         <p>En este sub-aparte se tratan todos aquellos mensajes que no son expresivos por ser siempre brindados al
@@ -200,6 +379,17 @@
           <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
             <iframe width="300" height="315" src="https://www.youtube.com/embed/a27boRtgcLM" frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="music7" data-aos="fade-up">
+            <h1 class="about-me music">Como se ve en el código?</h1>
+            <p class="about-me">En el siguiente fragmento de código se ve la línea exacta en la que</p>
+            <script src="https://gist.github.com/jframos29/fda7e8ac3b90f01e077d96b088022b9b.js"></script>
+          </div>
+          <div class="music" data-aos="fade-up">
+            <h1 class="about-me music">Solución</h1>
+            <p class="about-me">La forma de solucionar este error es generar un mensaje mucho más comprensible para el
+              usuario</p>
+            <script src="https://gist.github.com/jframos29/9329adb91eb3a1b05edb099345482481.js"></script>
           </div>
         </div>
         <h2>Lost content</h2>
@@ -221,6 +411,17 @@
             <iframe width="300" height="315" src="https://www.youtube.com/embed/FHJSCreOPq4" frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
+          <div class="music7" data-aos="fade-up">
+            <h1 class="about-me music">Como se ve en el código?</h1>
+            <p class="about-me">En el siguiente fragmento de código se ve la línea exacta en la que</p>
+            <script src="https://gist.github.com/jframos29/fda7e8ac3b90f01e077d96b088022b9b.js"></script>
+          </div>
+          <div class="music" data-aos="fade-up">
+            <h1 class="about-me music">Solución</h1>
+            <p class="about-me">La forma de solucionar este error es generar un mensaje mucho más comprensible para el
+              usuario</p>
+            <script src="https://gist.github.com/jframos29/9329adb91eb3a1b05edb099345482481.js"></script>
+          </div>
         </div>
         <h3>Lost pages</h3>
         <p>Aquí, en el momento en que se pierde la conexión a internet, las páginas que estaban siendo cargadas se
@@ -238,28 +439,115 @@
             <iframe width="300" height="315" src="https://www.youtube.com/embed/BRZh2TWZwDQ" frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
-        </div>
-        <h2>Non-existent Result Notification</h2>
-        <p>En este aparte se tratan los errores que consisten en la falta de comunicación con el usuario a la hora de
-          informarle sobre el resultado de un evento que se estaba gestando cuando un cambio en la conexión a internet o
-          a la hora de informarle sobre la necesidad de reiniciar dicho proceso manualmente.
-        </p>
-        <h3>Nonexistent notification of retrying an action</h3>
-        <p>En este caso, mientras se estaba dando un proceso de descarga, aunque la aplicación lanza una notificación de
-          error que contiene trazas de una excepción</p>
-        <div class="row projects">
-          <div class="col-sm container-fluid" data-aos="fade-left">
-            <h1 class="about-me"> Nonexistent notification of retrying an action No. 1</h1>
-            <p class="about-me">
-              En esta situación, al no reactivarse la descarga automática, es un error no notificar al usuario sobre la
-              necesidad de reiniciar (o reactivar) manualmente la descarga de capítulos en Tachiyomi.
-            </p>
+          <div class="music7" data-aos="fade-up">
+            <h1 class="about-me music">Como se ve en el código?</h1>
+            <p class="about-me">En el siguiente fragmento de código se ve la línea exacta en la que</p>
+            <script src="https://gist.github.com/jframos29/fda7e8ac3b90f01e077d96b088022b9b.js"></script>
           </div>
-          <div class="container-fluid col-sm photoContainer" data-aos="fade-right">
-            <iframe width="300" height="315" src="https://www.youtube.com/embed/s5rdf5LhxuU" frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="music" data-aos="fade-up">
+            <h1 class="about-me music">Solución</h1>
+            <p class="about-me">La forma de solucionar este error es generar un mensaje mucho más comprensible para el
+              usuario</p>
+            <script src="https://gist.github.com/jframos29/9329adb91eb3a1b05edb099345482481.js"></script>
           </div>
         </div>
+      </div>
+      <div>
+        <h1 class="about-me music">Issues and Pull Request</h1>
+        <p>Gracias a las correcciones aquí dadas sobre conectividad eventual, fue posible realizar un pull request sobre el repositorio de Tachiyomi. Inicialmente se planteó un issue </p>
+      </div>
+      <div data-aos="fade-up">
+        <h1 class="about-me music"> Galería con corrección de errores de Conectividad Eventual</h1>
+        <p>En esta galería se muestran los resultados de las correciones de código presentadas anteriormente</p>
+        <div class="slideshow-container">
+          <div class="mySlides fade">
+            <div class="numbertext">1 / 7</div>
+            <img src="./images/Feature1.jpeg" style="width:30%">
+            <div class="text">Caption Text</div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">2 / 7</div>
+            <img src="./images/Feature12.jpeg" style="width:30%">
+            <div class="text">Caption Two</div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">3 / 7</div>
+            <img src="./images/Feature17.jpeg" style="width:30%">
+            <div class="text">Caption Three</div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">4 / 7</div>
+            <img src="./images/Feature17.jpeg" style="width:30%">
+            <div class="text">Caption Three</div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">5 / 7</div>
+            <img src="./images/Feature17.jpeg" style="width:30%">
+            <div class="text">Caption Three</div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">6 / 7</div>
+            <img src="./images/Feature17.jpeg" style="width:30%">
+            <div class="text">Caption Three</div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">7 / 7</div>
+            <img src="./images/Feature17.jpeg" style="width:30%">
+            <div class="text">Caption Three</div>
+          </div>
+
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        </div>
+        <br>
+
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+          <span class="dot" onclick="currentSlide(5)"></span>
+          <span class="dot" onclick="currentSlide(6)"></span>
+          <span class="dot" onclick="currentSlide(7)"></span>
+        </div>
+
+        <script>
+          var slideIndex = 1;
+          showSlides(slideIndex);
+
+          function plusSlides(n) {
+            showSlides(slideIndex += n);
+          }
+
+          function currentSlide(n) {
+            showSlides(slideIndex = n);
+          }
+
+          function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";
+              slides[i].classList.remove("show");
+            }
+            for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            slides[slideIndex - 1].classList.add("show");
+            dots[slideIndex - 1].className += " active";
+          }
+        </script>
       </div>
     </main>
     <footer class="mastfoot mt-auto">
