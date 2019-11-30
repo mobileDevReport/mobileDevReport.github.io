@@ -49,8 +49,8 @@
       <div class="welcome">
         <h1 class="cover-heading">Librerías</h1>
         <p class="lead">
-          El app de Tachiyomi hace uso de varias librerías de terceros. En esta sección se explicará el 
-          funcionamiento de estas librerías junto con fragmentos de código en donde se usan dichas librerías en la 
+          El app de Tachiyomi hace uso de varias librerías de terceros. En esta sección se explicará el
+          funcionamiento de estas librerías junto con fragmentos de código en donde se usan dichas librerías en la
           aplicación.
         </p>
         <div id="div-chevron" class="row">
@@ -61,10 +61,10 @@
         <div class="col-sm container-fluid" data-aos="fade-left">
           <h1 class="about-me">OkHttp y Okio</h1>
           <p class="about-me">
-            OkHttp es una librería para manejo de peticiones HTTP. Esta librería tiene dependencia con Okio, la cual 
-            es usada para un manejo eficiente de operaciones I/O. Un ejemplo del uso de estas librería en la aplicación 
-            es el siguiente. En el archivo Requests, se define la estructura de las peticiones que serán utilizadas 
-            en la aplicación. Por otro lado, en la clase ProgressResponseBody se usa Okio para manejar la lectura de 
+            OkHttp es una librería para manejo de peticiones HTTP. Esta librería tiene dependencia con Okio, la cual
+            es usada para un manejo eficiente de operaciones I/O. Un ejemplo del uso de estas librería en la aplicación
+            es el siguiente. En el archivo Requests, se define la estructura de las peticiones que serán utilizadas
+            en la aplicación. Por otro lado, en la clase ProgressResponseBody se usa Okio para manejar la lectura de
             un recurso, con información sobre el progreso de la operación.
           </p>
           <p class="about-me">
@@ -79,8 +79,8 @@
         <div class="col-sm container-fluid" data-aos="fade-left">
           <h1 class="about-me">Gson</h1>
           <p class="about-me">
-            Gson es una librería desarrollada por Google para serializar objetos a json y deserializar de json a 
-            objetos. En el caso de Tachiyomi, esta librería se usa para serializar/deserializar la información de 
+            Gson es una librería desarrollada por Google para serializar objetos a json y deserializar de json a
+            objetos. En el caso de Tachiyomi, esta librería se usa para serializar/deserializar la información de
             descarga de un capítulo para poder ser almacenada en o recuperada de Shared Preferences (más información
             en la sección de Almacenamiento), tal como se muestra a continuación:
           </p>
@@ -109,7 +109,7 @@
         <div class="col-sm container-fluid" data-aos="fade-left">
           <h1 class="about-me">Injekt</h1>
           <p class="about-me">
-            Injekt es una librería para injección de dependencias en Kotlin. Tachiyomi funciona con injección de 
+            Injekt es una librería para injección de dependencias en Kotlin. Tachiyomi funciona con injección de
             dependencias, tal como se muestra a continuación.
           </p>
           <p class="about-me">
@@ -124,13 +124,13 @@
         <div class="col-sm container-fluid" data-aos="fade-left">
           <h1 class="about-me">SQLite con StorIO</h1>
           <p class="about-me">
-            StorIO es un API que busca reemplazar el uso de las APIs SQLiteDatabase y ContentResolver, integrando 
-            las funcionalidades de ambas APIs de una manera más sencilla para el desarrollador. En el proyecto de 
-            Tachiyomi, se hace uso de StorIOSQLite para manejar su base de datos interna, junto con Rx, el cual 
-            observa los cambios realizados a la base de datos para actualizar el estado de la aplicación. Un 
+            StorIO es un API que busca reemplazar el uso de las APIs SQLiteDatabase y ContentResolver, integrando
+            las funcionalidades de ambas APIs de una manera más sencilla para el desarrollador. En el proyecto de
+            Tachiyomi, se hace uso de StorIOSQLite para manejar su base de datos interna, junto con Rx, el cual
+            observa los cambios realizados a la base de datos para actualizar el estado de la aplicación. Un
             ejemplo del uso de StorIO se puede observar en las interfaces del directorio data/database/queries. En
-            dichas interfaces, se hace uso de la propiedad heredada de DbProvider: db, el cual es de tipo 
-            DefaultStorIOSQLite para crear, construir y preparar las queries para las distintas operaciones sobre 
+            dichas interfaces, se hace uso de la propiedad heredada de DbProvider: db, el cual es de tipo
+            DefaultStorIOSQLite para crear, construir y preparar las queries para las distintas operaciones sobre
             los modelos de la aplicación.
           </p>
           <p class="about-me">
@@ -144,30 +144,65 @@
           </p>
         </div>
       </div>
+
+      <div class="row projects">
+        <div class="col-sm container-fluid" data-aos="fade-left">
+          <h1 class="about-me">ReactiveX (Rx)</h1>
+          <p class="about-me">
+            ReactiveX es una librería hecha para la ejecución de tareas en segundo plano de forma asíncrona. De igual
+            manera, permite la ejecución de varios hilos con el fin de finiquitar dichas tareas en segundo plano y tener
+            un rendimiento efectivo en la consecución de tareas de alto impacto como las descargas de mangas (en este
+            caso) o las
+            tareas computacionalmente costosas por la gran cantidad de información.
+          </p>
+          <p class="about-me">
+            En la sección de Arquitectura se explicará más a fondo el uso de esta librería y en la sección de
+            Arquitectura y Performance encontrará fragmentos de código de su uso.
+          </p>
+        </div>
+      </div>
+
+      <div class="row projects">
+        <div class="col-sm container-fluid" data-aos="fade-left">
+          <h1 class="about-me">Nucleus</h1>
+          <p class="about-me">
+            Nucleus es una librería hecha para utilizar el patrón MVP dentro de aplicaciones Android. En conjunto con Rx
+            es especialmente util para otorgar respuestas apropiadas a la realización de tareas en segundo plano; esto
+            porque Nucleus permite mantener el estado de la aplicación y reaccionar frente a los cambios del mismo (en
+            cada uno de los modelos y vistas respectivas con ayuda del presentador de cada uno de esos modelos y
+            vistas). De igual manera, esto la hace una librería robusta para combatir eventos de conectividad eventual
+            aunque, como se verá, (o se ha visto) no hay nada perfecto.
+          </p>
+          <p class="about-me">
+            En la sección de Arquitectura se explicará más a fondo el uso de esta librería y en la sección de
+            Arquitectura y Performance encontrará fragmentos de código de su uso.
+          </p>
+        </div>
+      </div>
       <div class="row projects">
         <div class="col-sm container-fluid" data-aos="fade-left">
           <h1 class="about-me">Glide</h1>
           <p class="about-me">
-            Glide es una librería para carga y caching de imágenes. El uso de Glide en Tachiyomi se divide 
-            principalmente en 4 clases. La clase TachiGlideModule, que extiende de AppGlideModule, es la que 
-            actualiza la configuración del módulo de Glide. Aquí se definen configuraciones como el manejo de 
+            Glide es una librería para carga y caching de imágenes. El uso de Glide en Tachiyomi se divide
+            principalmente en 4 clases. La clase TachiGlideModule, que extiende de AppGlideModule, es la que
+            actualiza la configuración del módulo de Glide. Aquí se definen configuraciones como el manejo de
             caching en disco, opciones de transición, y opciones de solicitud.
           </p>
           <p class="about-me">
             <script src="https://gist.github.com/SeCardenas/91a89770427a2fd5cec9ee024b436a7a.js"></script>
           </p>
           <p class="about-me">
-            La clase FileFetcher se encarga de manejar la carga de imágenes desde archivos, tal como se aprecia en 
+            La clase FileFetcher se encarga de manejar la carga de imágenes desde archivos, tal como se aprecia en
             el método loadFromFile.
           </p>
           <p class="about-me">
             <script src="https://gist.github.com/SeCardenas/c9bc601017cb26302dd310bb13d318cf.js"></script>
           </p>
           <p class="about-me">
-            En la clase LibraryMangaUrlFetcher se encarga de manejar parte del caching de imágenes: para cargar una 
+            En la clase LibraryMangaUrlFetcher se encarga de manejar parte del caching de imágenes: para cargar una
             imagen, debe revisar si está en caché. Si no está en caché, debe descargar la imagen y guardarla en caché.
-            En el siguiente fragmento de código, en el método loadData, se verifica si el archivo recibido existe. 
-            Si existe, se carga la imagen. Si no, se descarga, se guarda localmente, se copia a caché, y finalmente 
+            En el siguiente fragmento de código, en el método loadData, se verifica si el archivo recibido existe.
+            Si existe, se carga la imagen. Si no, se descarga, se guarda localmente, se copia a caché, y finalmente
             se carga desde el archivo guardado.
           </p>
           <p class="about-me">
@@ -187,8 +222,8 @@
         <div class="col-sm">
           <p>Contact us! <a href="mailto:juferamos@outlook.com"><img title="Send me an email" class="email"
                 height="13rem" width="17rem" src="./images/email.png" alt="Email link"></a><a
-              href="https://github.com/mobileDevReport/" target="_blank"><img title="Watch our github page" class="email"
-                height="17rem" width="17rem" src="./images/github.png" alt="github link"></a></p>
+              href="https://github.com/mobileDevReport/" target="_blank"><img title="Watch our github page"
+                class="email" height="17rem" width="17rem" src="./images/github.png" alt="github link"></a></p>
         </div>
         <div class="col-sm">
           <p id="despedida">A digito cognoscitur leo</p>
