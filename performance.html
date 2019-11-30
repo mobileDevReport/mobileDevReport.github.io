@@ -213,8 +213,7 @@
           <p class="about-me">
             Antes de volver a la app, se reanuda la descarga de capítulos, por lo que se presenta uso de red y CPU. 
             Al cambiar la app a primer plano, aumenta ligeramente el uso de memoria. Además de esto, se observa que 
-            el uso de memoria luego de volver a la app es ligeramente menor al uso antes de volver al home, por lo 
-            que es posible que haya un memory leak.
+            el uso de memoria luego de volver a la app es ligeramente menor al uso antes de volver al home.
           </p>
           <img id="profile_photo" width="590vw" src="./images/Performace15.png" alt="">
         </div>
@@ -293,6 +292,19 @@
             es la más adecuada, pues no se puede monitorear el uso de recursos de otras aplicaciones tan fácilmente.
           </p>
           <img id="profile_photo" width="590vw" src="./images/Performace24.png" alt="">
+        </div>
+      </div>
+      <div class="row projects">
+        <div class="container-fluid col-sm photoContainer" data-aos="fade-left">
+          <h2 class="about-me">Memory Leaks</h2>
+          <p class="about-me">
+            Luego de realizar el profiling de la aplicación, se siguió el mismo flujo de navegación, realizando las 
+            mismas acciones, pero esta vez corriendo la aplicación en debug mode y usando LeakCanary para encontrar 
+            posibles Memory Leaks. La herramienta no detectó objetos que fueran retenidos en memoria en ningún 
+            momento durante la ejecución de la aplicación, por lo que se puede decir que no se detectó ningún Memory 
+            Leak.
+          </p>
+          <img id="profile_photo" width="590vw" src="./images/leak.png" alt="">
         </div>
       </div>
     </main>
