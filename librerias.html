@@ -33,8 +33,8 @@
         <nav class="nav nav-masthead justify-content-center">
           <a class="nav-link" href="./index.html">¿Qué es Tachiyomi?</a>
           <a class="nav-link" href="./features.html">Features</a>
-          <a class="nav-link active" href="./uxui.html">UX/UI</a>
-          <a class="nav-link" href="./librerias.html">Librerías</a>
+          <a class="nav-link" href="./uxui.html">UX/UI</a>
+          <a class="nav-link active" href="./librerias.html">Librerías</a>
           <a class="nav-link" href="./arq.html">Arquitectura</a>
           <a class="nav-link" href="./eventualConn.html">Conectividad Eventual</a>
           <a class="nav-link" href="./performance.html">Performance</a>
@@ -45,87 +45,67 @@
         </nav>
       </div>
     </header>
-
-    <main class="inner cover">
+    <main class="inner cover2">
       <div class="welcome">
-        <h1 class="cover-heading">Compomentes de GUI</h1>
-        <p class="lead">En esta sección se repasarán los componentes de GUI utilizados en la aplicación.</p>
+        <h1 class="cover-heading">Librerías</h1>
+        <p class="lead">
+          El app de Tachiyomi hace uso de varias librerías de terceros. En esta sección se explicará el 
+          funcionamiento de estas librerías junto con fragmentos de código en donde se usan dichas librerías en la 
+          aplicación.
+        </p>
         <div id="div-chevron" class="row">
           <img id="img-chevron" width="50rem" height="50rem" src="./images/chevron.png" alt="chevron-button">
         </div>
       </div>
       <div class="row projects">
         <div class="col-sm container-fluid" data-aos="fade-left">
-          <h1 class="about-me">App Bar</h1>
+          <h1 class="about-me">OkHttp y Okio</h1>
           <p class="about-me">
-            La barra de aplicación está presente en todas las vistas de aplicación, y cambia los botones en ella 
-            dependiendo de la actividad. Los botones que suelen estar en dicha barra son: Navigation Drawer, Back 
-            Button, Botón de búsqueda, Botón de filtros, Menú desplegable, Botón de configuración, Botón de filtros 
-            y Botón de cambio de layout.
+            OkHttp es una librería para manejo de peticiones HTTP. Esta librería tiene dependencia con Okio, la cual 
+            es usada para un manejo eficiente de operaciones I/O. Un ejemplo del uso de estas librería en la aplicación 
+            es el siguiente. En el archivo Requests, se define la estructura de las peticiones que serán utilizadas 
+            en la aplicación. Por otro lado, en la clase ProgressResponseBody se usa Okio para manejar la lectura de 
+            un recurso, con información sobre el progreso de la operación.
           </p>
-          <img id="profile_photo" width="290vw" src="./images/Feature64.jpeg" alt="">
-          <img id="profile_photo" width="290vw" src="./images/Feature58.jpeg" alt="">
-          <img id="profile_photo" width="290vw" src="./images/Feature54.jpeg" alt="">
-          <img id="profile_photo" width="290vw" src="./images/Feature48.jpeg" alt="">
+          <p class="about-me">
+            <script src="https://gist.github.com/SeCardenas/b8b416d8d97e5b0d7bdf2021c4d3c6b7.js"></script>
+          </p>
+          <p class="about-me">
+            <script src="https://gist.github.com/SeCardenas/4bdb757ad80b6b2a7eff7a47f9bec12d.js"></script>
+          </p>
         </div>
       </div>
       <div class="row projects">
         <div class="col-sm container-fluid" data-aos="fade-left">
-          <h1 class="about-me">Tabs</h1>
+          <h1 class="about-me">SQLite con StorIO</h1>
           <p class="about-me">
-            La actividad de detalle de manga tiene dos pestañas: Pestaña de información general y listado de 
-            capítulos.
+            StorIO es un API que busca reemplazar el uso de las APIs SQLiteDatabase y ContentResolver, integrando 
+            las funcionalidades de ambas APIs de una manera más sencilla para el desarrollador. En el proyecto de 
+            Tachiyomi, se hace uso de StorIOSQLite para manejar su base de datos interna, junto con Rx, el cual 
+            observa los cambios realizados a la base de datos para actualizar el estado de la aplicación. Un 
+            ejemplo del uso de StorIO se puede observar en las interfaces del directorio data/database/queries. En
+            dichas interfaces, se hace uso de la propiedad heredada de DbProvider: db, el cual es de tipo 
+            DefaultStorIOSQLite para crear, construir y preparar las queries para las distintas operaciones sobre 
+            los modelos de la aplicación.
           </p>
-          <img id="profile_photo" width="290vw" src="./images/Feature47.jpeg" alt="">
-          <img id="profile_photo" width="290vw" src="./images/Feature48.jpeg" alt="">
-        </div>
-      </div>
-      <div class="row projects">
-        <div class="col-sm container-fluid" data-aos="fade-left">
-          <h1 class="about-me">Sharing Panels</h1>
           <p class="about-me">
-            La aplicación abre un panel en la parte de abajo para compartir un manga específico.
+            <script src="https://gist.github.com/SeCardenas/cedd88c56cfb411ed0ae019fdd5ef4d7.js"></script>
           </p>
-          <img id="profile_photo" width="290vw" src="./images/Feature8.jpeg" alt="">
-        </div>
-      </div>
-      <div class="row projects">
-        <div class="col-sm container-fluid" data-aos="fade-left">
-          <h1 class="about-me">Dialogs</h1>
           <p class="about-me">
-            Hay diálogos en varias partes de la aplicación, sobre todo en funcionalidades de configuración.
+            <script src="https://gist.github.com/SeCardenas/0fba41c9c6f2ad0d51bcd8e6f9bcc1bb.js"></script>
           </p>
-          <img id="profile_photo" width="290vw" src="./images/Feature52.jpeg" alt="">
-          <img id="profile_photo" width="290vw" src="./images/Feature51.jpeg" alt="">
-        </div>
-      </div>
-      <div class="row projects">
-        <div class="col-sm container-fluid" data-aos="fade-left">
-          <h1 class="about-me">Grid list</h1>
           <p class="about-me">
-            En la actividad de librería y lista de mangas de una fuente, se usa una Grid List para visualizar los 
-            mangas.
+            En la sección de Almacenamiento se explicará más a fondo el uso de esta librería.
           </p>
-          <img id="profile_photo" width="290vw" src="./images/Feature64.jpeg" alt="">
-        </div>
-      </div>
-      <div class="row projects">
-        <div class="col-sm container-fluid" data-aos="fade-left">
-          <h1 class="about-me">ViewPager</h1>
-          <p class="about-me">
-            La aplicación cuenta con un ViewPager para poder leer los mangas.
-          </p>
-          <img id="profile_photo" width="290vw" src="./images/Feature20.jpeg" alt="">
-          <img id="profile_photo" width="290vw" src="./images/Feature19.jpeg" alt="">
         </div>
       </div>
     </main>
     <footer class="mastfoot mt-auto">
       <div class="inner row">
         <div class="col-sm">
-          <p>Contact me! <a href="mailto:juferamos@outlook.com"><img title="Send me an email" class="email"
+          <p>Contact us! <a href="mailto:juferamos@outlook.com"><img title="Send me an email" class="email"
                 height="13rem" width="17rem" src="./images/email.png" alt="Email link"></a><a
-              href="https://github.com/jframos29" target="_blank"><img title="Watch my github page" class="email"
+              href="https://github.com/mobileDevReport/" target="_blank"><img title="Watch our github page" class="email"
                 height="17rem" width="17rem" src="./images/github.png" alt="github link"></a></p>
         </div>
         <div class="col-sm">

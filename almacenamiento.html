@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="./script2.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="icon" href="./images/ic_launcher-web.png" />
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
+  <title>Reporte de Tachiyomi</title>
+</head>
+
+<body>
+  <div class="cover-container container-fluid d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+      <div class="inner">
+        <a id="naviga" href="./index.html">
+          <h3 class="masthead-brand">Reporte de Tachiyomi</h3>
+        </a>
+        <nav class="nav nav-masthead justify-content-center">
+          <a class="nav-link" href="./index.html">¿Qué es Tachiyomi?</a>
+          <a class="nav-link" href="./features.html">Features</a>
+          <a class="nav-link" href="./uxui.html">UX/UI</a>
+          <a class="nav-link" href="./librerias.html">Librerías</a>
+          <a class="nav-link" href="./arq.html">Arquitectura</a>
+          <a class="nav-link" href="./eventualConn.html">Conectividad Eventual</a>
+          <a class="nav-link" href="./performance.html">Performance</a>
+          <a class="nav-link active" href="./almacenamiento.html">Almacenamiento</a>
+          <a class="nav-link" href="./conclusion.html">Conclusiones</a>
+          <a class="nav-link" href="./us.html">¿Quienes somos?</a>
+          <a class="nav-link" href="./try.html">Try it yourself</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="inner cover2">
+      <div class="welcome">
+        <h1 class="cover-heading">Almacenamiento</h1>
+        <p class="lead">
+          El app de Tachiyomi maneja 3 métodos de almacenamiento: Shared Preferences, base de datos 
+          SQLite, y almacenamiento externo utilizado para realizar un backup de la base de datos y para guardar los 
+          capítulos descargados.
+        </p>
+        <div id="div-chevron" class="row">
+          <img id="img-chevron" width="50rem" height="50rem" src="./images/chevron.png" alt="chevron-button">
+        </div>
+      </div>
+      <div class="row projects">
+        <div class="col-sm container-fluid" data-aos="fade-left">
+          <h1 class="about-me">Shared Preferences</h1>
+          <p class="about-me">
+            Tachiyomi usa Shared Preferences para guardar el registro de los capítulos descargados. Las parejas que 
+            se guardan son de la forma &lt;id del capítulo, json serializado de la información del capítulo&gt;. la 
+            información que se guarda del capítulo es el id del capítulo, el id del manga, y un contador que indica 
+            la página en la que el usuario terminó de leer la última vez. En el siguiente fragmento de la clase 
+            DownloadStore se observa claramente el uso de Shared Preferences para este fin:
+          </p>
+          <p>
+            <script src="https://gist.github.com/SeCardenas/83beefe857b0d6b235d3e61c30c087de.js"></script>
+          </p>
+        </div>
+      </div>
+      <div class="row projects">
+        <div class="col-sm container-fluid" data-aos="fade-left">
+          <h1 class="about-me">Base de datos SQLite</h1>
+          <p class="about-me">
+            Como se menciona en la sección de Librerías, Tachiyomi hace uso de StorIOSQLite para manejar la base de 
+            datos local. En primer lugar, en el directorio data/database/models/ se encuentran las interfaces y 
+            clases que corresponden a las tablas de la base de datos. En el directorio data/database/tables/ se 
+            encuentran los objetos correspondientes a las tablas, junto con la sentencia SQL que permite crear 
+            estas tablas. En el directorio data/database/mappers/, en donde se encuentran archivos con clases que 
+            heredan de SQLiteTypeMapping y de los DefaultResolvers que están disponibles en StorIO. Estos archivos 
+            son los que definen el Object Mapping. un ejemplo de esto último se muestra a continuación. El archivo 
+            CategoryTypeMapping cuenta con 4 clases: CategoryTypeMapping, en donde se definen los Resolvers a 
+            utilizar para el Object Mapping, y 3 Resolvers (CategoryPutResolver, CategoryGetResolver, 
+            CategoryDeleteResolver), en donde se construyen las sentencias SQL a utilizar para cada operación.
+          </p>
+          <p>
+            <script src="https://gist.github.com/SeCardenas/3494ad4d028ac8a06177b1572bca61d7.js"></script>
+          </p>
+          <p class="about-me">
+            Adicionalmente, en el directorio data/database/resolvers/, se encuentran clases que extienden de los 
+            Resolvers de StorIO, donde no solo se definen las sentencias a utilizar, sino que se ejecutan mediante 
+            el DbProvider.
+          </p>
+          <p>
+            <script src="https://gist.github.com/SeCardenas/7ce12969b4af6ab0d27c1e4bff57ef87.js"></script>
+          </p>
+          <p class="about-me">
+            Finalmente, en el directorio data/database/queries/, se definen, crean, construyen y preparan todas las 
+            queries que se van a ejecutar en la aplicación, a través de interfaces que realizan estas operaciones 
+            sobre las sentencias genéricas definidas en el archivo RawQueries. En otrar palabras, el DbProvider crea 
+            y verifica las sentencias del archivo RawQueries con los parámetros dados.
+          </p>
+          <p>
+            <script src="https://gist.github.com/SeCardenas/cedd88c56cfb411ed0ae019fdd5ef4d7.js"></script>
+          </p>
+          <p>
+            <script src="https://gist.github.com/SeCardenas/4b9e1a7dbd0c891e6cd875a511fcb6c6.js"></script>
+          </p>
+        </div>
+      </div>
+      <div class="row projects">
+        <div class="col-sm container-fluid" data-aos="fade-left">
+            <h1 class="about-me">Almacenamiento externo para backup</h1>
+            <p class="about-me">
+              Como se mencionó anteriormente, el almacenamiento externo es utilizado para guardar un backup de la 
+              base de datos local. Este backup es un archivo en formato json, cuya estructura está definida en el 
+              archivo Backup.kt
+            </p>
+            <p class="about-me">
+              <script src="https://gist.github.com/SeCardenas/d40d3392eff6fe8a82defb3cf3de831e.js"></script>
+            </p>
+            <p class="about-me">
+              La clase que se encarga de realizar el backup de la base de datos es el BackupManager. A través del 
+              método createBackup se convierte los datos de la base de datos a los que se les quiere realizar el 
+              backup a json, y luego se guarda este json en una ruta dada. En este método también se lanza un 
+              Intent correspondiente a un diálogo informando que la operación de backup fue completada. Cabe 
+              resaltar que el BackupManager puede ser usado tanto por un IntentService como por un Job, por lo que 
+              en el método createBackup se verifica si el backup se realizó a través de un Job o un IntentService. 
+              El diálogo solo se muestra si la operación se realizó a través del IntentService.
+            </p>
+            <p class="about-me">
+              <script src="https://gist.github.com/SeCardenas/e5b5236f4f83fe81e56f2fa38891a031.js"></script>
+            </p>
+            <p class="about-me">
+              Para convertir los datos de la base de datos a json se hace uso de un DatabaseHelper. La operación de 
+              backup es configurable, es decir, el usuario decide de qué quiere realizar el backup. Esto se ilustra 
+              en el método backupMangaObject de la clase BackupManager.
+            </p>
+            <p class="about-me">
+              <script src="https://gist.github.com/SeCardenas/24fc14196b9a877ef29ca4d910bd8f23.js"></script>
+            </p>
+            <p class="about-me">
+              Como se ha ido mencionando hasta el momento, hay dos mecanismos a través de los cuales se puede 
+              realizar un backup, los cuales son un IntentService y un Job. Estos corresponden a las clases 
+              BackupCreateService y BackupCreatorJob respectivamente. En ambos se hace uso del backupManager en 
+              los métodos onHandleIntent (para el IntentService) y onRunJob (para el Job)
+            </p>
+            <p class="about-me">
+              <script src="https://gist.github.com/SeCardenas/2ef241f7bfb39439de0a925546349b66.js"></script>
+            </p>
+            <p class="about-me">
+              <script src="https://gist.github.com/SeCardenas/83aa9f6fad858e7a80b88f649cf32835.js"></script>
+            </p>
+            <p class="about-me">
+              Para recuperar la información del backup, se tiene la clase BackupRestoreService. Los métodos 
+              principales de la clase son onStartCommand, en el cual se realiza la transacción en la base de datos 
+              con ayuda del DatabaseHelper, y el método getRestoreObservable, el cual recupera la información del 
+              archivo json y la retorna como un Observable para poder guardarse en la base de datos.
+            </p>
+            <p class="about-me">
+              <script src="https://gist.github.com/SeCardenas/8d2336104d1a100a20389b6cd6e3aa1e.js"></script>
+            </p>
+            <p class="about-me">
+              Un ejemplo del archivo de backup generado se muestra a continuación, el cual fue extraído desde la 
+              tarjeta SD del celular.
+            </p>
+            <p class="about-me">
+              <script src="https://gist.github.com/SeCardenas/2ac44ddaaed6107a15449fffd9cdc321.js"></script>
+            </p>
+        </div>
+      </div>
+      <div class="row projects">
+          <div class="col-sm container-fluid" data-aos="fade-left">
+            <h1 class="about-me">Almacenamiento externo para descarga de capítulos</h1>
+            <p class="about-me">
+              Otro uso que Tachiyomi le da al almacenamiento externo es la descarga de capítulos para poder leerlos 
+              sin conexión. El siguiente ejemplo muestra el uso de almacenamiento externo para guardar el capítulo 
+              descargado. Sin entrar en detalle en el proceso de descarga (para más información, dirigirse a la 
+              sección de Arquitectura), se observa que antes de descargar el capítulo, es decir, al inicio del método
+              downloadChapter, se crea el directorio donde será almacenado. Por otro lado, en el método downloadImage
+              se crea un archivo por cada imagen descargada, y se guarda la imagen en dicho archivo.
+            </p>
+            <p>
+              <script src="https://gist.github.com/SeCardenas/4bce57e352e5a9476837f595f00aadab.js"></script>
+            </p>
+          </div>
+        </div>
+    </main>
+    <footer class="mastfoot mt-auto">
+      <div class="inner row">
+        <div class="col-sm">
+          <p>Contact us! <a href="mailto:juferamos@outlook.com"><img title="Send me an email" class="email"
+                height="13rem" width="17rem" src="./images/email.png" alt="Email link"></a><a
+              href="https://github.com/mobileDevReport/" target="_blank"><img title="Watch our github page" class="email"
+                height="17rem" width="17rem" src="./images/github.png" alt="github link"></a></p>
+        </div>
+        <div class="col-sm">
+          <p id="despedida">A digito cognoscitur leo</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+</html>
