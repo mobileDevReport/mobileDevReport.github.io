@@ -77,6 +77,51 @@
       </div>
       <div class="row projects">
         <div class="col-sm container-fluid" data-aos="fade-left">
+          <h1 class="about-me">Gson</h1>
+          <p class="about-me">
+            Gson es una librería desarrollada por Google para serializar objetos a json y deserializar de json a 
+            objetos. En el caso de Tachiyomi, esta librería se usa para serializar/deserializar la información de 
+            descarga de un capítulo para poder ser almacenada en o recuperada de Shared Preferences (más información
+            en la sección de Almacenamiento), tal como se muestra a continuación:
+          </p>
+          <p class="about-me">
+            <script src="https://gist.github.com/SeCardenas/980c98f73a7aeed9d7aa7dd615e4d9e8.js"></script>
+          </p>
+        </div>
+      </div>
+      <div class="row projects">
+        <div class="col-sm container-fluid" data-aos="fade-left">
+          <h1 class="about-me">UniFile</h1>
+          <p class="about-me">
+            Es un Fork de DocumentFile, pero con funcionalidades adicionales. En Tachiyomi esta librería se usa para
+            manejar almacenamiento externo. Los siguientes ejemplos corresponden al uso de UniFile en almacenamiento
+            para backup y almacenamiento de capítulos (en ambos casos se usa para crear directorios y archivos).
+          </p>
+          <p class="about-me">
+            <script src="https://gist.github.com/SeCardenas/31721227e663c7484dd8a8b29ddc0dec.js"></script>
+          </p>
+          <p class="about-me">
+            <script src="https://gist.github.com/SeCardenas/8af7a6317b21e82ab38da38d6888bb7a.js"></script>
+          </p>
+        </div>
+      </div>
+      <div class="row projects">
+        <div class="col-sm container-fluid" data-aos="fade-left">
+          <h1 class="about-me">Injekt</h1>
+          <p class="about-me">
+            Injekt es una librería para injección de dependencias en Kotlin. Tachiyomi funciona con injección de 
+            dependencias, tal como se muestra a continuación.
+          </p>
+          <p class="about-me">
+            <script src="https://gist.github.com/jframos29/eeaefd68bf71649c802128f6e9ded3d3.js"></script>
+          </p>
+          <p class="about-me">
+            Para más información sobre este patrón, consulte la sección de Arquitectura.
+          </p>
+        </div>
+      </div>
+      <div class="row projects">
+        <div class="col-sm container-fluid" data-aos="fade-left">
           <h1 class="about-me">SQLite con StorIO</h1>
           <p class="about-me">
             StorIO es un API que busca reemplazar el uso de las APIs SQLiteDatabase y ContentResolver, integrando 
@@ -96,6 +141,27 @@
           </p>
           <p class="about-me">
             En la sección de Almacenamiento se explicará más a fondo el uso de esta librería.
+          </p>
+        </div>
+      </div>
+      <div class="row projects">
+        <div class="col-sm container-fluid" data-aos="fade-left">
+          <h1 class="about-me">Glide</h1>
+          <p class="about-me">
+            Glide es una librería para carga y caching de imágenes. El uso de Glide en Tachiyomi se divide 
+            principalmente en 4 clases. La clase TachiGlideModule, que extiende de AppGlideModule, es la que 
+            actualiza la configuración del módulo de Glide. Aquí se definen configuraciones como el manejo de 
+            caching en disco, opciones de transición, y opciones de solicitud.
+          </p>
+          <p class="about-me">
+            <script src="https://gist.github.com/SeCardenas/91a89770427a2fd5cec9ee024b436a7a.js"></script>
+          </p>
+          <p class="about-me">
+            La clase FileFetcher se encarga de manejar la carga de imágenes desde archivos, tal como se aprecia en 
+            el método loadFromFile.
+          </p>
+          <p class="about-me">
+            <script src="https://gist.github.com/SeCardenas/c9bc601017cb26302dd310bb13d318cf.js"></script>
           </p>
         </div>
       </div>
