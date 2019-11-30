@@ -61,21 +61,39 @@
         <div class="col-sm container-fluid" data-aos="fade-left">
           <h1 class="about-me">Base de datos SQLite</h1>
           <p class="about-me">
-              .
+            Como se menciona en la sección de Librerías, Tachiyomi hace uso de StorIOSQLite para manejar la base de 
+            datos local. En primer lugar, en el directorio data/database/models/ se encuentran las interfaces y 
+            clases que corresponden a las tablas de la base de datos. En el directorio data/database/tables/ se 
+            encuentran los objetos correspondientes a las tablas, junto con la sentencia SQL que permite crear 
+            estas tablas. En el directorio data/database/mappers/, en donde se encuentran archivos con clases que 
+            heredan de SQLiteTypeMapping y de los DefaultResolvers que están disponibles en StorIO. Estos archivos 
+            son los que definen el Object Mapping. un ejemplo de esto último se muestra a continuación. El archivo 
+            CategoryTypeMapping cuenta con 4 clases: CategoryTypeMapping, en donde se definen los Resolvers a 
+            utilizar para el Object Mapping, y 3 Resolvers (CategoryPutResolver, CategoryGetResolver, 
+            CategoryDeleteResolver), en donde se construyen las sentencias SQL a utilizar para cada operación.
           </p>
           <p class="about-me">
-            
+            <script src="https://gist.github.com/SeCardenas/3494ad4d028ac8a06177b1572bca61d7.js"></script>
           </p>
           <p class="about-me">
-              Mediante el método registerInjectables() se introducen todas las dependencias a usar y sus respectivas
-              factories (de ser necesario). De esta forma, se utiliza Injekt en vez del objeto mismo para verificar
-              que el patrón asociado al mismo (como el patrón Singleton en el caso del DatabaseHelper) se cumpla a
-              cabalidad. Un ejemplo del uso de Injekt se encuentra en el uso del metodo get&lt;ExtensionManager&gt;(). En
-              este ejemplo, dado que se definió que se utilizaría un singletonFactory en esta clase, cada vez que
-              se invoque dicho metodo get&lt;ExtensionManager&gt;() se obtendrá la misma instancia de ExtensionManager
-              en caso de que ya haya sido previamente creada.
+            Adicionalmente, en el directorio data/database/resolvers/, se encuentran clases que extienden de los 
+            Resolvers de StorIO, donde no solo se definen las sentencias a utilizar, sino que se ejecutan mediante 
+            el DbProvider.
           </p>
+          <p class="about-me">
+            <script src="https://gist.github.com/SeCardenas/7ce12969b4af6ab0d27c1e4bff57ef87.js"></script>
+          </p>
+          Finalmente, en el directorio data/database/queries/, se definen, crean, construyen y preparan todas las 
+          queries que se van a ejecutar en la aplicación, a través de interfaces que realizan estas operaciones 
+          sobre las sentencias genéricas definidas en el archivo RawQueries. En otrar palabras, el DbProvider crea 
+          y verifica las sentencias del archivo RawQueries con los parámetros dados.
         </div>
+        <p class="about-me">
+          <script src="https://gist.github.com/SeCardenas/cedd88c56cfb411ed0ae019fdd5ef4d7.js"></script>
+        </p>
+        <p class="about-me">
+          <script src="https://gist.github.com/SeCardenas/cedd88c56cfb411ed0ae019fdd5ef4d7.js"></script>
+        </p>
       </div>
       <div class="row projects">
         <div class="col-sm container-fluid" data-aos="fade-left">

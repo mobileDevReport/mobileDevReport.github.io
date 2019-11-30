@@ -48,41 +48,37 @@
 
     <main class="inner cover2">
       <div class="welcome">
-        <h1 class="cover-heading">Arquitectura</h1>
-        <p class="lead">El app de Tachiyomi maneja diferentes patrones de diseño con el fin de realizar un correcto
-          manejo de interfaz gráfica, teniendo en cuenta la realización de tareas en segundo plano (como la descarga
-          de comics), de controlar el uso asincrónico de entidades relacionadas con tareas de alto impacto (como
-          manejadores de bases de datos, de descargas de contenido o de manejo de caché) y, por sobre todo, mantener
-          un bajo acoplamiento. Para dar una mirada más profunda de los patrones de diseño utilizados se listarán a
-          continuación</p>
+        <h1 class="cover-heading">Librerías</h1>
+        <p class="lead">
+          El app de Tachiyomi hace uso de varias librerías de terceros. En esta sección se explicará el 
+          funcionamiento de estas librerías junto con fragmentos de código en donde se usan dichas librerías en la 
+          aplicación.
+        </p>
         <div id="div-chevron" class="row">
           <img id="img-chevron" width="50rem" height="50rem" src="./images/chevron.png" alt="chevron-button">
         </div>
       </div>
       <div class="row projects">
         <div class="col-sm container-fluid" data-aos="fade-left">
-          <h1 class="about-me">Inyección de dependencias</h1>
+          <h1 class="about-me">SQLite con StorIO</h1>
           <p class="about-me">
-              El patrón de inyección de dependencias consiste en separar el proceso de creación de los objetos de los
-              objetos mismos. En cierta medida, este patrón está basado, al menos en este caso, en el uso del patrón
-              Factory Method, que será explicado a posteriori. Esto debido a que, mediante el patrón Factory Method,
-              el proceso de creación de cada uno de los componentes esenciales de Tachiyomi se ve reducido al uso de
-              una clase específica para dicho fin. Ahora bien, de una manera concreta, Tachiyomi hace uso de la
-              librería Injekt con el fin de hacer la inyección de dependencias. En el siguiente fragmento de código
-              (correspondiente a la clase AppModule [tachiyomi-0.8.4/app/src/main/java/eu/kanade/tachiyomi/AppModule.kt]) se puede ver el uso de la librería
-              Injekt y el uso del método fundamental registerInjectables() que será explicado a continuación.
+              StorIO es un API que busca reemplazar el uso de las APIs SQLiteDatabase y ContentResolver, integrando 
+              las funcionalidades de ambas APIs de una manera más sencilla para el desarrollador. En el proyecto de 
+              Tachiyomi, se hace uso de StorIOSQLite para manejar su base de datos interna, junto con Rx, el cual 
+              observa los cambios realizados a la base de datos para actualizar el estado de la aplicación. Un 
+              ejemplo del uso de StorIO se puede observar en las interfaces del directorio data/database/queries. En
+              dichas interfaces, se hace uso de la propiedad heredada de DbProvider: db, el cual es de tipo 
+              DefaultStorIOSQLite para crear, construir y preparar las queries para las distintas operaciones sobre 
+              los modelos de la aplicación.
           </p>
           <p class="about-me">
-              <script src="https://gist.github.com/jframos29/eeaefd68bf71649c802128f6e9ded3d3.js"></script>
+            <script src="https://gist.github.com/SeCardenas/cedd88c56cfb411ed0ae019fdd5ef4d7.js"></script>
           </p>
           <p class="about-me">
-              Mediante el método registerInjectables() se introducen todas las dependencias a usar y sus respectivas
-              factories (de ser necesario). De esta forma, se utiliza Injekt en vez del objeto mismo para verificar
-              que el patrón asociado al mismo (como el patrón Singleton en el caso del DatabaseHelper) se cumpla a
-              cabalidad. Un ejemplo del uso de Injekt se encuentra en el uso del metodo get&lt;ExtensionManager&gt;(). En
-              este ejemplo, dado que se definió que se utilizaría un singletonFactory en esta clase, cada vez que
-              se invoque dicho metodo get&lt;ExtensionManager&gt;() se obtendrá la misma instancia de ExtensionManager
-              en caso de que ya haya sido previamente creada.
+            <script src="https://gist.github.com/SeCardenas/0fba41c9c6f2ad0d51bcd8e6f9bcc1bb.js"></script>
+          </p>
+          <p class="about-me">
+            En la sección de Almacenamiento se explicará más a fondo el uso de esta librería.
           </p>
         </div>
       </div>
