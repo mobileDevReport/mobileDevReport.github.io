@@ -163,6 +163,22 @@
           <p class="about-me">
             <script src="https://gist.github.com/SeCardenas/c9bc601017cb26302dd310bb13d318cf.js"></script>
           </p>
+          <p class="about-me">
+            En la clase LibraryMangaUrlFetcher se encarga de manejar parte del caching de imágenes: para cargar una 
+            imagen, debe revisar si está en caché. Si no está en caché, debe descargar la imagen y guardarla en caché.
+            En el siguiente fragmento de código, en el método loadData, se verifica si el archivo recibido existe. 
+            Si existe, se carga la imagen. Si no, se descarga, se guarda localmente, se copia a caché, y finalmente 
+            se carga desde el archivo guardado.
+          </p>
+          <p class="about-me">
+            <script src="https://gist.github.com/SeCardenas/f16b55be25dfeaef1777b92a23e2137f.js"></script>
+          </p>
+          <p class="about-me">
+            Finalmente, el MangaModelLoader aplica más técnicas de caching (e.g. LRU) en el método buildLocalData
+          </p>
+          <p class="about-me">
+            <script src="https://gist.github.com/SeCardenas/aa6e4d177158b1f4e4fc6f023252d3f9.js"></script>
+          </p>
         </div>
       </div>
     </main>
